@@ -1,5 +1,5 @@
 
-    <header class="flex w-full h-[296px] flex-col text-white">
+    <header class="flex w-full h-[80px] flex-col text-white">
         <div class="flex h-[80px] items-center justify-center">
             <div class="flex items-center justify-center gap-[10px] pr-[239px]">
                 <img src="{{asset('images/logo.svg')}}" alt="">
@@ -26,9 +26,6 @@
                 wallet connect
             </button>
 
-        </div>
-        <div class="flex items-center justify-center">
-            <h1 class="text-[48px]">Login</h1>
         </div>
 
 

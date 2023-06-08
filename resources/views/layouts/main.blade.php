@@ -10,7 +10,19 @@
 </head>
 <body class="bg-[#14141F]">
     <x-navheader/>
-    @yield('content')
+    <x-subheader>
+        <x-slot name='subtitle'>
+            Login
+        </x-slot>
+        <x-slot name='liText'>
+            Community
+        </x-slot>
+
+    </x-subheader>
+    <main>\
+        @yield('content')
+    </main>
+
     <x-footer/>
 
 
