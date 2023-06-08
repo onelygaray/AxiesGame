@@ -22,4 +22,6 @@ Route::get('/', function () {
 Route::get('layouts',[MainController::class, 'index']);
 
 
-// Route::get('layouts',[App\Http\Controllers\LoginController::class, 'index']);
+Route::get('layouts', function() {
+    return view('layouts.login');
+});

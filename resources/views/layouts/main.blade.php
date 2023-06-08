@@ -9,7 +9,7 @@
 
 </head>
 <body class="bg-[#14141F]">
-    <x-navheader/>
+    @include('partials.header')
     <x-subheader>
         <x-slot name='subtitle'>
             Login
@@ -19,11 +19,12 @@
         </x-slot>
 
     </x-subheader>
+    {{-- @include('layouts.login') --}}
     <main>\
         @yield('content')
     </main>
 
-    <x-footer/>
+    @include('partials.footer')
 
 
 </body>
