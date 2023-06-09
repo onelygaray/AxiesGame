@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="flex justify-center mt-[80px] w-full h-[787px]">
+<div class="flex justify-center mt-[80px] w-full h-[788px]">
     <form class="flex flex-col items-center w-[691px] h-[427px] text-white">
-        <h1 class="mb-[64px] text-[36px] font-[700]">Login To NTFs</h1>
+        <h1 class="mb-[64px] text-[36px] font-[700]">Signup To NTFs</h1>
         <div class="flex items-center justify-center gap-[16px] h-[28px] w-full">
             <hr class="w-[250px] border border-[#343444]">
             <div class="flex w-[149px] h-[28px]">
@@ -13,6 +13,7 @@
 
         </div>
         <div class="flex flex-col gap-[24px] mt-[30px] w-full">
+            <input class="h-[48px] bg-transparent rounded-[8px] border border-[#343444]" type="text" placeholder="Your Full Name">
             <input class="h-[48px] bg-transparent rounded-[8px] border border-[#343444]" type="text" placeholder="Your Email Address">
             <input class="h-[48px] bg-transparent rounded-[8px] border border-[#343444]" type="text" placeholder="Your Password ">
 
@@ -28,7 +29,7 @@
             </div>
         </div>
 
-        <button class="flex justify-center h-[54px] mt-[33px] items-center text-[15px] rounded-[56px] border border-[#ffff] w-full">Login</button>
+        <button class="flex justify-center h-[54px] mt-[33px] items-center text-[15px] rounded-[56px] border border-[#ffff] w-full">Singup</button>
 
 
 
@@ -36,9 +37,3 @@
 </div>
 
 @endsection
-
-
-
-
-
-
