@@ -1,8 +1,10 @@
 @extends('layouts.main')
 
+@section('title','Login')
+
 @section('content')
-<div class="flex justify-center mt-[80px] w-full h-[787px]">
-    <form class="flex flex-col items-center w-[691px] h-[427px] text-white">
+<div class="flex justify-center w-full h-[787px]">
+    <form class="flex flex-col items-center mt-[80px] w-[691px] h-[427px] text-white">
         <h1 class="mb-[64px] text-[36px] font-[700]">Login To NTFs</h1>
         <div class="flex items-center justify-center gap-[16px] h-[28px] w-full">
             <hr class="w-[250px] border border-[#343444]">

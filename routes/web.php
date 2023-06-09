@@ -22,6 +22,10 @@ Route::get('/', function () {
 Route::get('layouts',[MainController::class, 'index']);
 
 
+// Route::get('layouts', function() {
+//     return view('layouts.login');
+// });
+
 Route::get('layouts', function() {
-    return view('layouts.login');
+    return view('layouts.signup');
 });
