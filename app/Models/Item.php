@@ -9,11 +9,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+//implementacion de Libreria
+use Spatie\MediaLibrary\HasMedia; //Exportar
+use Spatie\MediaLibrary\InteractsWithMedia; //Exportar
 
 
-class Item extends Model
+class Item extends Model implements HasMedia
 {
-    use HasFactory;
+    //implementando el Hasmedia
+    use HasFactory, InteractsWithMedia;
+
     public function User(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -27,5 +32,9 @@ class Item extends Model
     {
         return $this->hasMany(Collection::class);
     }
+
+
+
+
 
 }
