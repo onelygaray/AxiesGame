@@ -1,7 +1,3 @@
-@include('layouts.main')
-
-@section('content')
-
 <section class=" bg-[#14141F] text-white font-[Urbanist] m-auto h-[922px]">
     <div class="w-[1440px] flex mx-auto gap-x-20 pt-20">
 
@@ -178,6 +174,3 @@
     {{-- {{ asset('js.itemShow') }} --}}
     <!-- The only way to do great work is to love what you do. - Steve Jobs -->
 </section>
-
-
-@endsection
