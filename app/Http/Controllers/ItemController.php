@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ItemCreateRequest;
 use App\Models\Item;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -10,9 +12,10 @@ class ItemController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        $item = Item::query()->get();
+        return view('layouts.createItem', ['items' => $item]);
     }
 
     /**
@@ -26,9 +29,18 @@ class ItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ItemCreateRequest $request)
     {
-        //
+        //Toma la validacion creada en el request
+        $itemImage = Item::create($request->validated());
+
+        $itemImage->addMediaFromRequest('image')
+
+            ->toMediaCollection();
+        $images = $itemImage->getMedia();
+
+        return redirect()->back();
+
     }
 
     /**

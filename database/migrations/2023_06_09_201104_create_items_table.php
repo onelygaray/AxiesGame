@@ -12,11 +12,11 @@ return new class extends Migration {
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->text('image');
-            $table->decimal('price');
+            $table->text('image')->nullable();
+            $table->decimal('price')->nullable();
             $table->char('title');
             $table->text('description');
-            $table->foreignId('collection_id')->references('id')->on('collections');
+            $table->foreignId('collection_id')->references('id')->on('collections'); //
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
