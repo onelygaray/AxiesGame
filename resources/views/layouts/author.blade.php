@@ -48,13 +48,13 @@
         </div>
 
     </div>
-    <div class="w-[1410px] h-[1156px] mt-[60px]">
+    <div class="w-[1410px] h-[1156px] mt-[60px] flex flex-nowrap ">
         <x-card></x-card>
 
         </div>
 
     </div>
-    
+
 </div>
 
 
