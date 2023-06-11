@@ -1,6 +1,5 @@
 @extends('layouts.main')
 
-@section('title','Login')
 
 @section('content')
 <div class="flex justify-center w-full h-[787px]">
