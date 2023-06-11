@@ -26,6 +26,8 @@ class ItemCreateRequest extends FormRequest
              */    'title' => ['required'],
             'description' => ['required'],
             'collection_id' => ['required'],
+            'price'=>['required'],
+            'size'=>['required'],
             'user_id' => ['required'],
         ];
     }

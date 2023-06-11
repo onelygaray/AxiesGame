@@ -1,4 +1,4 @@
-@include('layouts.main')
+@extends('layouts.main')
 
 @section('content')
     <section class=" bg-[#14141F] text-white font-[Urbanist] m-auto h-[922px]">
@@ -85,7 +85,7 @@
 
             {{-- formulario de la card --}}
             <div>
-                <form id="form" method="POST" action="" enctype="multipart/form-data">
+                <form id="form" method="POST" action="{{ route('create.store') }}" enctype="multipart/form-data">
                     @csrf
                     <p class="font-semibold ">Upload File</p>
                     <input

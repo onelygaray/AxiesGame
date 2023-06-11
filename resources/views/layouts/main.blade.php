@@ -20,11 +20,11 @@
 
     </x-subheader>
     {{-- @include('layouts.login') --}}
-    <main>\
+    <main>
         @yield('content')
     </main>
 
-    
+
     @include('partials.footer')
 
 

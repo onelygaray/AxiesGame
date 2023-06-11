@@ -15,7 +15,7 @@ class ItemController extends Controller
     public function index(): View
     {
         $item = Item::query()->get();
-        return view('layouts.createItem', ['items' => $item]);
+        return view('layouts.createItems', ['items' => $item]);
     }
 
     /**
