@@ -28,13 +28,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    //Ruta para create item
+    Route::resource('/item/create', ItemController::class)->except('show');
 });
 Route::get('layouts', function () {
     return view('layouts.author');
 });
 
-//Ruta para create item
-Route::resource('/item/create', ItemController::class)->except('show');
 
 
 

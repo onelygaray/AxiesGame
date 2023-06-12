@@ -6,6 +6,7 @@ use App\Http\Requests\ItemCreateRequest;
 use App\Models\Item;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -14,8 +15,9 @@ class ItemController extends Controller
      */
     public function index(): View
     {
-        $item = Item::query()->get();
-        return view('layouts.createItem', ['items' => $item]);
+
+        $items = Item::query()->get();
+        return view('layouts.createItem', ['items' => $items]);
     }
 
     /**
@@ -32,13 +34,23 @@ class ItemController extends Controller
     public function store(ItemCreateRequest $request)
     {
         //Toma la validacion creada en el request
-        $itemImage = Item::create($request->validated());
+
+        $userId = Auth::id();
+        $itemData = $request->validated();
+        $itemData['user_id'] = $userId;
+        $itemImage = Item::create($itemData);
+
+        /*         $itemImage = Item::create($request->validated());
+         */
+
+        //basado en la documentacion...
 
         $itemImage->addMediaFromRequest('image')
-
             ->toMediaCollection();
-        $images = $itemImage->getMedia();
 
+
+        /*         $images = $itemImage->getMedia();
+         */
         return redirect()->back();
 
     }
