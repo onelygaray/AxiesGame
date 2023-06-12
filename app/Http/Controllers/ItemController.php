@@ -17,7 +17,7 @@ class ItemController extends Controller
     {
 
         $items = Item::query()->get();
-        return view('layouts.createItem', ['items' => $items]);
+        return view('layouts.createItems', ['items' => $items]);
     }
 
     /**

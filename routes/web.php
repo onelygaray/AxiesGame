@@ -30,4 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('/item/create', ItemController::class)->except('show');
 });
 
+//Ruta para create item
+Route::resource('/item/create', ItemController::class)->except('show');
+
+
+
 require __DIR__ . '/auth.php';
