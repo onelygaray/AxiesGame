@@ -1,4 +1,4 @@
-{{--
+
 <form method="POST" enctype="multipart/form-data" action="{{ route('create.store') }}" class="flex flex-col" >
 @csrf
 <input type="file" name="image" id="" placeholder="image">
