@@ -1,6 +1,6 @@
-<header class="flex w-full h-[80px] flex-col text-white mt-5">
+<header class="flex w-full h-[80px] z-[1] flex-col  bg-gray-900 bg-opacity-80 backdrop-filter backdrop-blur-md fixed text-white items-center border-b border-[#8A8AA0]">
     <div class="flex h-[80px] items-center justify-center">
-        <a class="flex items-center justify-center gap-[10px] 
+        <a class="flex items-center justify-center gap-[10px]
         mr-[239px] cursor-pointer hover:scale-125 ease-out duration-500
         " href="{{ route('login')}}">
             <img src="{{asset('images/logo.svg')}}" alt="">
@@ -15,7 +15,7 @@
                 <li><a class="text-[18px]" href="#">Community</a></li>
                 <li><a class="text-[18px]" href="#">Pages</a></li>
                 <li><a class="text-[18px]" href="#">Contact</a></li>
-                
+
 
             </ul>
         </nav>
@@ -28,7 +28,7 @@
             <img src="{{asset('images/wallet.svg')}}" alt="">
             wallet connect
         </button>
-         
+
         {{-- Boton del header que redirige a la viste de crear un usuario --}}
         <a class="text-[18px] text-white ml-[50px]
         font-extrabold  hover:scale-125 ease-out duration-500" href="{{ route('register')}}">     Registrar   </a>

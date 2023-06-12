@@ -10,6 +10,20 @@
 </form>
 
 
+
+
+{{-- ignorar esto de momento borrenlo --}}
+@foreach ($items as $item)
+
+  <li href="">{{ $item->title}}</li>
+  <li href="">{{ $item->description}}</li>
+  @foreach ($item->getMedia() as $media )
+      <img src="{{ $media->getFullUrl() }}" alt="img">
+  @endforeach
+
+@endforeach
+
+
 {{-- <img src="{{ $images->getFirsMedia()->getUrl() }}" alt=""> --}}
 
 @if (!empty($images) && count($images) > 0)

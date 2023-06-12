@@ -1,7 +1,7 @@
 <?php
-
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Item;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home',['items'=>Item::all()]);
 });
 
 Route::get('/dashboard', function () {
@@ -27,16 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    Route::resource('item/create', ItemController::class)->except('show');
-    
-
+    //Implementacion
+    Route::resource('/item/create', ItemController::class)->except('show');
 });
-// Route::get('layouts', function () {
-//     return view('layouts.author');
-// });
 
-// Route::get('layouts',function(){
-//     return view('layouts.createItems');
-// });
 require __DIR__ . '/auth.php';

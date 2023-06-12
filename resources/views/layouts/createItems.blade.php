@@ -90,7 +90,7 @@
                     <p class="font-semibold ">Upload File</p>
                     <input
                         class="ps-[20px] py-[12px] text-sm mt-[20px] mb-[24px] bg-transparent w-[1000px] h-[102px] rounded-lg border border-gray-300"
-                        type="file" name="file" placeholder="PNG, JPG, GIF, WEBP or MP4 (Max 200mb)">
+                        type="file" name="image" placeholder="PNG, JPG, GIF, WEBP or MP4 (Max 200mb)">
                     @error('file')
                         {{ $message }}
                     @enderror
@@ -158,9 +158,14 @@
                     --}}
                             <select
                                 class="ps-[20px] py-[12px] text-sm mt-[20px] mb-[24px] bg-transparent w-[320px] h-[46px] rounded-lg border border-gray-300"
-                                name="collection" id="">
-                                <option>Art</option>
-                                <option>Music</option>
+                                name="collection_id" id="">
+                                <option value="1">Art</option>
+                                <option value="2">Music</option>
+                                {{-- @foreach ($collections as $collection)
+                                <option value="{{$collection->id}}">{{$collection->name}}</option>
+
+                                @endforeach --}}
+
                             </select>
                             @error('royalties')
                                 {{ $message }}
