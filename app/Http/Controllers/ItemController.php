@@ -15,8 +15,9 @@ class ItemController extends Controller
      */
     public function index(): View
     {
-        $item = Item::query()->get();
-        return view('layouts.createItems', ['items' => $item]);
+
+        $items = Item::query()->get();
+        return view('layouts.createItems', ['items' => $items]);
     }
 
     /**
@@ -34,15 +35,19 @@ class ItemController extends Controller
     {
         //Toma la validacion creada en el request
 
-        $UserId = Auth::id();
-        $itemData = $request->validate();
-        $itemData['user_id']= $UserId;
+        $userId = Auth::id();
+        $itemData = $request->validated();
+        $itemData['user_id'] = $userId;
         $itemImage = Item::create($itemData);
 
-        $itemImage->addMediaFromRequest('image')
+        /*         $itemImage = Item::create($request->validated());
+         */
 
+        //basado en la documentacion...
+
+        $itemImage->addMediaFromRequest('image')
             ->toMediaCollection();
-        // $images = $itemImage->getMedia();
+
 
         return redirect()->back();
 
