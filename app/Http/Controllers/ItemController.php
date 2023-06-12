@@ -35,12 +35,12 @@ class ItemController extends Controller
         $itemImage = Item::create($request->validated());
 
         $itemImage->addMediaFromRequest('image')
+        
 
             ->toMediaCollection();
         $images = $itemImage->getMedia();
 
         return redirect()->back();
-
     }
 
     /**
