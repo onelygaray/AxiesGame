@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Item;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home',['items'=>Item::all()]);
 });
 
 Route::get('/dashboard', function () {
