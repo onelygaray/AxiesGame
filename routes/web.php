@@ -33,8 +33,13 @@ Route::middleware('auth')->group(function () {
 //     return view('layouts.author');
 // });
 
-Route::get('layouts',function(){
-    return view('layouts.createItems');
-});
+
+
+Route::resource('/item/create', ItemController::class)->except('show');
+// Route::get('/item/create', [ItemController::class, 'create']);
+// Route::post('/item', [ItemController::class, 'store']);
+// Route::get('/item/{id}/edit', [ItemController::class, 'edit']);
+// Route::put('/item/{id}', 'ItemController@update');
+// Route::delete('/item/{id}', 'ItemController@destroy');
 
 require __DIR__ . '/auth.php';

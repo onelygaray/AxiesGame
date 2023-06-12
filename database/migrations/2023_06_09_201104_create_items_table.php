@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->decimal('price')->nullable();
             $table->char('title');
             $table->text('description');
+            $table->decimal('royalties');
+            $table->decimal('size');
             $table->foreignId('collection_id')->references('id')->on('collections'); //
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();

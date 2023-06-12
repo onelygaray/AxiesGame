@@ -85,7 +85,7 @@
 
             {{-- formulario de la card --}}
             <div>
-                <form id="form" method="POST" action="{{ route('create.store') }}" enctype="multipart/form-data">
+                <form id="form" method="POST" action="{{ action([App\Http\Controller\ItemController::class, 'store']) }}" enctype="multipart/form-data">
                     @csrf
                     <p class="font-semibold ">Upload File</p>
                     <input
@@ -158,9 +158,14 @@
                     --}}
                             <select
                                 class="ps-[20px] py-[12px] text-sm mt-[20px] mb-[24px] bg-transparent w-[320px] h-[46px] rounded-lg border border-gray-300"
-                                name="collection" id="">
-                                <option>Art</option>
-                                <option>Music</option>
+                                name="collection_id" id="">
+                                <option value="">Art</option>
+                                <option value="">Music</option>
+                                {{-- @foreach ($collections as $collection)
+                                <option value="{{$collection->id}}">{{$collection->name}}</option>
+
+                                @endforeach --}}
+
                             </select>
                             @error('royalties')
                                 {{ $message }}

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Collection;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class CollectionController extends Controller
@@ -10,9 +12,13 @@ class CollectionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index():View
     {
-        //
+        $collections = Collection::all();
+
+        return view('layouts.createItems', ['collections'=>$collections]);
+
+
     }
 
     /**
@@ -28,6 +34,10 @@ class CollectionController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
+
         //
     }
 
@@ -36,7 +46,7 @@ class CollectionController extends Controller
      */
     public function show(Collection $collection)
     {
-        //
+
     }
 
     /**

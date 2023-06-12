@@ -1,4 +1,4 @@
-
+{{--
 <form method="POST" enctype="multipart/form-data" action="{{ route('create.store') }}" class="flex flex-col" >
 @csrf
 <input type="file" name="image" id="" placeholder="image">
@@ -12,6 +12,6 @@
 
 {{-- <img src="{{ $images->getFirsMedia()->getUrl() }}" alt=""> --}}
 
-@if (!empty($images) && count($images) > 0)
+{{-- @if (!empty($images) && count($images) > 0)
     <img src="{{ $images[0]->getUrl() }}" alt="">
-@endif
+@endif --}} 
