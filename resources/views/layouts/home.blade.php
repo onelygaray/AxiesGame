@@ -115,12 +115,28 @@
             <x-card :item="$item"/>
 
             @endforeach
+        </div>
 
+    </section>
+    <section class="bg-[#14141F] text-white flex flex-col items-center py-[80px] h-[2345px] w-full">
+        <div class="flex flex-col gap-[38px] w-[1410px] h-[394px]">
+            <div class="flex items-center  w-[1410px] mt-[60px] h-[44px]">
+                <div>
+                    <h2 class="text-[36px] font-[700] leading-[44px]">Popular Collection</h2>
+                </div>
+                <div class="w-[118px] h-[25px] border-b border-[#9F50E5] ml-[981px] flex justify-center">
+                    <a class="text-[14px] leading-[20px] font-[700] tracking-[1px]" href="#">EXPLORE MORE</a>
+                </div>
+            </div>
+            <div class="flex gap-[30px] h-[394px] w-full">
+                <x-collection-popular/>
+                <x-collection-popular/>
+                <x-collection-popular/>
+
+            </div>
 
 
         </div>
-
-
     </section>
 
 </body>
