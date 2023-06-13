@@ -1,4 +1,4 @@
-<header class="flex w-full h-[80px] z-[1] flex-col  bg-gray-900 bg-opacity-80 backdrop-filter backdrop-blur-md fixed text-white items-center border-b border-[#8A8AA0]">
+<header class="flex w-full h-[80px] z-[1] flex-col  bg-gray-900 bg-opacity-87 backdrop-filter backdrop-blur-md  text-white items-center border-b border-[#8A8AA0]">
     <div class="flex h-[80px] items-center justify-center">
         <a class="flex items-center justify-center gap-[10px]
         mr-[239px] cursor-pointer hover:scale-125 ease-out duration-500
@@ -13,7 +13,7 @@
                 <li><a class="text-[18px]" href="#">Explore</a></li>
                 <li><a class="text-[18px]" href="">Activity</a></li>
                 <li><a class="text-[18px]" href="#">Community</a></li>
-                <li><a class="text-[18px]" href="#">Pages</a></li>
+                <li><a class="text-[18px]" href="#"></a></li>
                 <li><a class="text-[18px]" href="#">Contact</a></li>
 
 

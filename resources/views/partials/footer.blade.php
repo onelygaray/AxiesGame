@@ -1,4 +1,4 @@
-<footer class="w-full h-[362px] text-white flex items-center justify-center gap-[145px]">
+<footer class="w-full h-[362px] bg-[#0D0D11] text-white flex items-center justify-center gap-[145px]">
     <div class="flex w-[1410] h-[202px] gap-[145px] items-start">
         <div class="w-[245px] h-[202px] flex items-start flex-col">
             <div class="flex items-center justify-center gap-[10px] mb-[12px]">

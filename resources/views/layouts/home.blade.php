@@ -10,7 +10,7 @@
     @vite('resources/css/app.css')
 </head>
 <body class="relative">
-    @include('partials.navheader')
+    @include('partials.header')
 
     <main class="w-full h-[753px] bg-[#14141F] relative ">
         <div class="w-full h-full relative">
