@@ -5,8 +5,8 @@
             <span class="text-[14px] font-[700] leading-[24px]">100</span>
 
         </div>
-        <div class="bg-[#7A798A] w-[290px] relative h-[290px] rounded-[20px] overflow-hidden">
-            {{$media}}
+        <div class="bg-[rgb(122,121,138)] w-[290px] relative h-[290px] rounded-[20px] overflow-hidden">
+            {{ $media ?? '' }}
         </div>
 
     </div>

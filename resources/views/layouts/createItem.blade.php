@@ -67,21 +67,26 @@
   <input type="text" name="collection_id"  placeholder="collection_id">
   <button class="cursor-pointer"> save data</button>
   </form>
-  
-  
-  
-  
+
+
+
+
   {{-- ignorar esto de momento borrenlo --}}
-  
-  
+
+
   @foreach ($items as $item)
-  
+
     <li href="">{{ $item->title}}</li>
     <li href="">{{ $item->description}}</li>
     <li href="">{{ $item->size}}</li>
-    @foreach ( $item->getMedia() as $media )
+    @foreach ( $item->getMedia() as $media)
         <img src="{{ $media->getFullUrl() }}" alt="img">
     @endforeach
+<<<<<<< HEAD
   
   @endforeach
 >>>>>>> d8a99e40dd4cfa0c3419d962e7818368dd1171cc
+=======
+
+  @endforeach
+>>>>>>> ac7ef76fad306bdb14ce6adfed35a42eac24a675

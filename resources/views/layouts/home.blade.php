@@ -119,10 +119,15 @@
         </div>
 
         <div class="h-[16px] w-[148px] flex items-center justify-center gap-[16px] mt-[32px]">
-            <div class="w-4 h-4 rounded-full border bg-white border-[#ffff]"></div>
-            <div class="w-2 h-2 rounded-full border border-[#ffff]"></div>
-            <div class="w-2 h-2 rounded-full border border-[#ffff]"></div>
-            <div class="w-2 h-2 rounded-full border border-[#ffff]"></div>
+
+            <img src="{{ asset('images/arrow-left.svg') }}" alt="left" data-name="arrowleft">
+
+            <button class="w-4 h-4 rounded-full border bg-white border-[#ffff]" data-name="dot"></button>
+            <button class="w-2 h-2 rounded-full border border-[#ffff]" data-name="dot"></button>
+            <button class="w-2 h-2 rounded-full border border-[#ffff]" data-name="dot"></button>
+            <button class="w-2 h-2 rounded-full border border-[#ffff]" data-name="dot"></button>
+
+            <img src="{{ asset('images/arrow-right.svg') }}" alt="right" data-name="arrowright">
         </div>
 
     </section>
@@ -187,6 +192,8 @@
         </div>
     </section>
     @include('partials.footer')
+
+    <script src="{{ asset('js/carousel.js') }}"></script>
 
 
 </body>

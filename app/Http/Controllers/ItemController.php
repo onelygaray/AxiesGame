@@ -63,10 +63,18 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
+<<<<<<< HEAD
         $userId = Auth::id();
         $userName = Auth::user();
 
         $items = Item::query()->where('user_id', $userId)->get();
+=======
+        // $userId =Auth::id();
+        $user =  Auth::user();
+
+        $items = $user->items;
+
+>>>>>>> ac7ef76fad306bdb14ce6adfed35a42eac24a675
         return view('layouts.author', ['items' => $items]);
     }
 

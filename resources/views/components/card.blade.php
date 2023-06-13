@@ -1,4 +1,4 @@
-<div class="bg-[#30303E] text-white rounded-[20px]  px-[20px] pt-[20px] h-[511px] w-[330px]">
+<div class="bg-[#30303E] text-white rounded-[20px]  px-[20px] pt-[20px] h-[511px] w-[330px]" data-id="{{$item->id}}" data-name="item"  >
     <div class="relative w-[290px] h-[290px] ">
         <div class="flex items-center justify-center gap-[5px] bg-[#14141F] w-[64px] h-[28px] rounded-[8px] absolute z-[1] start-[214px] top-[14px]">
             <img src="{{asset('images/heart.svg')}}" alt="">
