@@ -10,7 +10,7 @@
     @vite('resources/css/app.css')
 </head>
 <body class="relative">
-    @include('partials.header')
+    @include('partials.navheader')
 
     <main class="w-full h-[753px] bg-[#14141F] relative ">
         <div class="w-full h-full relative">
@@ -115,12 +115,20 @@
             <x-card :item="$item"/>
 
             @endforeach
+
+        </div>
+
+        <div class="h-[16px] w-[148px] flex items-center justify-center gap-[16px] mt-[32px]">
+            <div class="w-4 h-4 rounded-full border bg-white border-[#ffff]"></div>
+            <div class="w-2 h-2 rounded-full border border-[#ffff]"></div>
+            <div class="w-2 h-2 rounded-full border border-[#ffff]"></div>
+            <div class="w-2 h-2 rounded-full border border-[#ffff]"></div>
         </div>
 
     </section>
-    <section class="bg-[#14141F] text-white flex flex-col items-center py-[80px] h-[2345px] w-full">
-        <div class="flex flex-col gap-[38px] w-[1410px] h-[394px]">
-            <div class="flex items-center  w-[1410px] mt-[60px] h-[44px]">
+    <section class="bg-[#14141F] text-white flex flex-col items-center py-[80px] gap-[80px]  h-[2345px] w-full relative">
+        <div class="flex flex-col gap-[38px] w-[1410px] h-[476px]">
+            <div class="flex items-center  w-[1410px]  h-[44px]">
                 <div>
                     <h2 class="text-[36px] font-[700] leading-[44px]">Popular Collection</h2>
                 </div>
@@ -134,10 +142,52 @@
                 <x-collection-popular/>
 
             </div>
+          </div>
 
+        <div class="flex flex-col gap-[40px] h-[312px] w-[1410px]  text-white">
+            <div>
+                <h2 class="text-[36px] font-[700] leading-[44px]">Top Seller</h2>
+            </div>
+            <div class="w-full h-[228px]">
+                <div class="flex items-center justify-center gap-[16px] h-[100px] w-[213px]">
+                    <div class="w-[100px] h-[100px] bg-[#7A798A] rounded-[34px] relative">
+                        <img class="relative" src="" alt="">
+                        <img class="absolute start-[74px] top-[74px]" src="{{ asset('images/check.svg') }}" alt="">
+                    </div>
+                    <div class="w-[97px] h-[50px]">
+                        <span>Crispin Berry</span>
+                        <span>214.2 ETH</span>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="w-[1410px] h-[1237px] items-center flex flex-col">
+            <div class="flex items-center  w-[1410px]  h-[44px]">
+                <div>
+                    <h2 class="text-[36px] font-[700] leading-[44px]">Today's Picker</h2>
+                </div>
+                <div class="w-[118px] h-[25px] border-b border-[#9F50E5] ml-[981px] flex justify-center">
+                    <a class="text-[14px] leading-[20px] font-[700] tracking-[1px]" href="#">EXPLORE MORE</a>
+                </div>
+            </div>
+            <div class="h-[1032px] mt-[40px] w-full flex flex-wrap gap-[30px]">
+                @foreach ($items as $item)
+            <x-card :item="$item"/>
+
+            @endforeach
+
+            </div>
+            <button class="w-[154px] h-[54px] mt-[37px] border border-[#FFFF] rounded-[30px] text-[15px]">
+                Load More
+            </button>
 
         </div>
     </section>
+    @include('partials.footer')
+
 
 </body>
 </html>
