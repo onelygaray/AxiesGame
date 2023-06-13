@@ -20,7 +20,7 @@
                             </svg>
                             <p class="font-Semibold">100</p>
                         </div>
-                        <img id="picture" src="" alt="">
+                        <img id="pictureShow" src="" alt="">
                     </div>
 
                     <div class="flex justify-between w-[290px] mx-auto mt-5">
@@ -88,7 +88,7 @@
                 <form id="form" method="POST" action="{{ route('create.store') }}" enctype="multipart/form-data">
                     @csrf
                     <p class="font-semibold ">Upload File</p>
-                    <input
+                    <input id="picture"
                         class="ps-[20px] py-[12px] text-sm mt-[20px] mb-[24px] bg-transparent w-[1000px] h-[102px] rounded-lg border border-gray-300"
                         type="file" name="image" placeholder="PNG, JPG, GIF, WEBP or MP4 (Max 200mb)">
                     @error('file')
@@ -181,20 +181,8 @@
 
         </div>
         {{-- script de la card --}}
-        <script>
-            const title = document.getElementById("title");
-            const titleShow = document.getElementById("titleShow");
-            title.addEventListener("input", () => {
-                titleShow.innerText = title.value;
-            });
-
-            const price = document.getElementById("price");
-            const priceShow = document.getElementById("priceShow");
-            price.addEventListener("input", () => {
-                priceShow.innerText = price.value;
-            });
-        </script>
-        {{-- {{ asset('js.itemShow') }} --}}
+ 
+        @vite('resources/js/viewdata.js')
         <!-- The only way to do great work is to love what you do. - Steve Jobs -->
     </section>
 

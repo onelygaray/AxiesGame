@@ -15,9 +15,10 @@ class ItemController extends Controller
      */
     public function index(): View
     {
+        
         $userId =Auth::id();
         $items = Item::query()->where('user_id',$userId)->get();
-        return view('layouts.createItem', ['items' => $items]);
+        return view('layouts.createItems', ['items' => $items]);
     }
 
     /**
