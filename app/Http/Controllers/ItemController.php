@@ -18,22 +18,8 @@ class ItemController extends Controller
     {
         $collections = Collection::query()->get();
 
-<<<<<<< HEAD
-
-        $userId = Auth::id();
-
-        $items = Item::query()->where('user_id', $userId)->get();
-
-        $collections = Collection::query()->get();
-
-
-
-        return view('layouts.createItem', ['items' => $items, 'collections' => $collections]);
-=======
-        $userId =Auth::id();
-        $items = Item::query()->where('user_id',$userId)->get();
-        return view('layouts.createItems', ['items' => $items, 'collections' => $collections]);
->>>>>>> d8a99e40dd4cfa0c3419d962e7818368dd1171cc
+        $items = Item::query()->get();
+        return view('layouts.createItems', ['items' => $items]);
     }
 
     /**
@@ -77,10 +63,10 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        $userId =Auth::id();
-        $userName =  Auth::user();
-        
-        $items = Item::query()->where('user_id',$userId)->get();
+        $userId = Auth::id();
+        $userName = Auth::user();
+
+        $items = Item::query()->where('user_id', $userId)->get();
         return view('layouts.author', ['items' => $items]);
     }
 

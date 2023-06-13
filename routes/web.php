@@ -18,13 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function () {
-    return view('home', ['items' => Item::all()]);
+    return view('welcome');
 });
+
+/* Route::get('/', function () {
+    return view('home', ['items' => Item::all()]);
+}); */
 
 Route::get('/dashboard', function () {
     return view('dashboard');
