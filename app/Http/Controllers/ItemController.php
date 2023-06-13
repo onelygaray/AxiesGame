@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ItemCreateRequest;
+use App\Models\Collection;
 use App\Models\Item;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -16,8 +17,15 @@ class ItemController extends Controller
     public function index(): View
     {
 
-        $items = Item::query()->get();
-        return view('layouts.createItems', ['items' => $items]);
+
+        $userId = Auth::id();
+
+        $items = Item::query()->where('user_id', $userId)->get();
+        $collections = Collection::query()->get();
+
+
+
+        return view('layouts.createItems', ['items' => $items, 'collections' => $collections]);
     }
 
     /**
@@ -25,7 +33,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('layouts.createItems');
+        //
     }
 
     /**
@@ -34,11 +42,11 @@ class ItemController extends Controller
     public function store(ItemCreateRequest $request)
     {
         //Toma la validacion creada en el request
-
         $userId = Auth::id();
         $itemData = $request->validated();
         $itemData['user_id'] = $userId;
         $itemImage = Item::create($itemData);
+
 
         /*         $itemImage = Item::create($request->validated());
          */
@@ -48,6 +56,9 @@ class ItemController extends Controller
         $itemImage->addMediaFromRequest('image')
             ->toMediaCollection();
 
+
+        /*         $images = $itemImage->getMedia();
+         */
 
         return redirect()->back();
 
