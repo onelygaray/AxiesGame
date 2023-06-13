@@ -15,9 +15,9 @@ class ItemController extends Controller
      */
     public function index(): View
     {
-
-        $items = Item::query()->get();
-        return view('layouts.createItems', ['items' => $items]);
+        $userId =Auth::id();
+        $items = Item::query()->where('user_id',$userId)->get();
+        return view('layouts.createItem', ['items' => $items]);
     }
 
     /**
@@ -46,11 +46,11 @@ class ItemController extends Controller
         //basado en la documentacion...
 
         $itemImage->addMediaFromRequest('image')
+        
             ->toMediaCollection();
 
 
         return redirect()->back();
-
     }
 
     /**
@@ -58,7 +58,9 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        $userId =Auth::id();
+        $items = Item::query()->where('user_id',$userId)->get();
+        return view('layouts.author', ['items' => $items]);
     }
 
     /**
