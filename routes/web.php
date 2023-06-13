@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+ Route::get('/', function () {
+     return view('welcome');
+ });
 
-Route::get('/', function () {
-    return view('home',['items'=>Item::all()]);
-});
+// Route::get('/', function () {
+//     return view('home',['items'=>Item::all()]);
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -34,5 +34,8 @@ Route::middleware('auth')->group(function () {
     //Implementacion
     Route::resource('/item/create', ItemController::class)->except('show');
 });
+
+Route::get('/author', [ItemController::class,'show'])->name('author');
+
 
 require __DIR__ . '/auth.php';

@@ -38,7 +38,7 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/Media'),
+            'root' => storage_path('app/public'),
             //cambie la ruta
             'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
