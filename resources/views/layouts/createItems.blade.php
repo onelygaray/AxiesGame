@@ -159,12 +159,11 @@
                             <select
                                 class="ps-[20px] py-[12px] text-sm mt-[20px] mb-[24px] bg-transparent w-[320px] h-[46px] rounded-lg border border-gray-300"
                                 name="collection_id" id="">
-                                <option value="1">Art</option>
-                                <option value="2">Music</option>
-                                {{-- @foreach ($collections as $collection)
+                            
+                                 @foreach ($collections as $collection)
                                 <option value="{{$collection->id}}">{{$collection->name}}</option>
 
-                                @endforeach --}}
+                                @endforeach
 
                             </select>
                             @error('royalties')

@@ -2,6 +2,7 @@
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Item;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/item/create', ItemController::class)->except('show');
 });
 
-Route::get('/author', [ItemController::class,'show'])->name('author');
+Route::get('/author',  [ItemController::class,'show'])->name('author');
 
 
 require __DIR__ . '/auth.php';
