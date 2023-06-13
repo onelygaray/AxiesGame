@@ -17,6 +17,7 @@ class ItemController extends Controller
     public function index(): View
     {
         $collections = Collection::query()->get();
+
         $userId =Auth::id();
         $items = Item::query()->where('user_id',$userId)->get();
         return view('layouts.createItems', ['items' => $items, 'collections' => $collections]);
@@ -48,7 +49,7 @@ class ItemController extends Controller
         //basado en la documentacion...
 
         $itemImage->addMediaFromRequest('image')
-        
+
             ->toMediaCollection();
 
 
