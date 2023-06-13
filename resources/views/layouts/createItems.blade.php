@@ -53,6 +53,9 @@
                         </div>
                     </div>
                     {{-- tercera columna --}}
+                    
+                    
+                    {{--  --}}
                     <div class="flex justify-between mx-auto w-[290px] mt-5">
                         <div
                             class="flex justify-center items-center gap-x-3 border border-[#5142FC] rounded-[30px] w-[141px] h-[46px]">
@@ -163,8 +166,7 @@
                               {{--   <option value="1">Art</option>
                                 <option value="2">Music</option> --}}
                                  @foreach ($collections as $collection)
-                                <option value="{{$collection->id}}">{{$collection->name}}</option>
-
+                                  <option value="{{$collection->id}}">{{$collection->name}}</option>
                                 @endforeach 
 
                             </select>

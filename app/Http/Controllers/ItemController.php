@@ -21,11 +21,12 @@ class ItemController extends Controller
         $userId = Auth::id();
 
         $items = Item::query()->where('user_id', $userId)->get();
+
         $collections = Collection::query()->get();
 
 
 
-        return view('layouts.createItems', ['items' => $items, 'collections' => $collections]);
+        return view('layouts.createItem', ['items' => $items, 'collections' => $collections]);
     }
 
     /**
