@@ -19,7 +19,7 @@
                 </div>
                 <div class="w-[466px] h-[186] text-white mt-[20px]">
                     <h2 class="text-[18px] leading-[28px]">Author Profile</h2>
-                    <h2 class="text-[36px] font-[700] leading-[44px] mt-[2px]">Trista Francis</h2>
+                    <h2 class="text-[36px] font-[700] leading-[44px] mt-[2px]">{{auth()->user()->name}}</h2>
                     <p class="text-[14px] leading-[22px] mt-[8px]">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati
                         dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.
@@ -48,9 +48,35 @@
         </div>
 
     </div>
-    <div class="w-[1410px] h-[1156px] mt-[60px] flex flex-nowrap ">
-        <x-card></x-card>
+    <div class="w-[1410px] h-[1156px] mt-[60px] flex flex-wrap gap-x-[20px]">
+        
+        {{-- fragmento de codigo donde se creara la card en base al componente --}}
+        {{-- Antes de manipular consultar(Bondi) --}}
+      @foreach ($items as $item)
+          
+        <x-card-view>
+            @foreach ( $item->getMedia() as $media )
+            <x-slot name='media'>
+                <img src="{{ $media->getFullUrl() }}">
+            </x-slot>
+             @endforeach
 
+            <x-slot name='title'>
+                {{ $item->title}}
+            </x-slot>
+
+
+            <x-slot name='user'>
+                {{ $item->user->name}}
+            </x-slot>
+
+            <x-slot name='price'>
+                {{ $item->price}}
+            </x-slot>
+
+        </x-card-view>
+
+      @endforeach
         </div>
 
     </div>

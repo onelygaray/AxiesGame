@@ -16,7 +16,9 @@ class ItemController extends Controller
      */
     public function index(): View
     {
+        $collections = Collection::query()->get();
 
+<<<<<<< HEAD
 
         $userId = Auth::id();
 
@@ -27,6 +29,11 @@ class ItemController extends Controller
 
 
         return view('layouts.createItem', ['items' => $items, 'collections' => $collections]);
+=======
+        $userId =Auth::id();
+        $items = Item::query()->where('user_id',$userId)->get();
+        return view('layouts.createItems', ['items' => $items, 'collections' => $collections]);
+>>>>>>> d8a99e40dd4cfa0c3419d962e7818368dd1171cc
     }
 
     /**
@@ -55,6 +62,7 @@ class ItemController extends Controller
         //basado en la documentacion...
 
         $itemImage->addMediaFromRequest('image')
+
             ->toMediaCollection();
 
 
@@ -62,7 +70,6 @@ class ItemController extends Controller
          */
 
         return redirect()->back();
-
     }
 
     /**
@@ -70,8 +77,13 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        $userId =Auth::id();
+        $userName =  Auth::user();
+        
+        $items = Item::query()->where('user_id',$userId)->get();
+        return view('layouts.author', ['items' => $items]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
