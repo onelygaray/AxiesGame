@@ -59,7 +59,7 @@
         <x-card-view>
             {{-- @foreach ( $item->getMedia() as $media ) --}}
             <x-slot name='media'>
-                <img src="{{ $item->getFirstMediaUrl() }}">
+                <img class="w-full h-full" src="{{ $item->getFirstMediaUrl() }}">
             </x-slot>
              {{-- @endforeach --}}
 

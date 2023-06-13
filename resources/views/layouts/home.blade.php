@@ -112,9 +112,30 @@
         </div>
         <div class="w-full h-[519px] flex gap-[30px] mt-[40px] overflow-hidden">
             @foreach ($items as $item)
-            <x-card :item="$item"/>
 
-            @endforeach
+        <x-card-view>
+            {{-- @foreach ( $item->getMedia() as $media ) --}}
+            <x-slot name='media'>
+                <img class="w-full h-full" src="{{ $item->getFirstMediaUrl() }}">
+            </x-slot>
+             {{-- @endforeach --}}
+
+            <x-slot name='title'>
+                {{ $item->title}}
+            </x-slot>
+
+
+            <x-slot name='user'>
+                {{ $item->user->name}}
+            </x-slot>
+
+            <x-slot name='price'>
+                {{ $item->price}}
+            </x-slot>
+
+        </x-card-view>
+
+      @endforeach
 
         </div>
 
