@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ItemCreateRequest;
+use App\Models\Collection;
 use App\Models\Item;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -15,10 +16,11 @@ class ItemController extends Controller
      */
     public function index(): View
     {
+        $collections = Collection::query()->get();
 
         $userId =Auth::id();
         $items = Item::query()->where('user_id',$userId)->get();
-        return view('layouts.createItems', ['items' => $items]);
+        return view('layouts.createItems', ['items' => $items, 'collections' => $collections]);
     }
 
     /**
@@ -60,9 +62,12 @@ class ItemController extends Controller
     public function show(Item $item)
     {
         $userId =Auth::id();
+        $userName =  Auth::user();
+        
         $items = Item::query()->where('user_id',$userId)->get();
         return view('layouts.author', ['items' => $items]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
