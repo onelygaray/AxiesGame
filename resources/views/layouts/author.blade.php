@@ -55,11 +55,9 @@
       @foreach ($items as $item)
           
         <x-card-view>
-            @foreach ( $item->getMedia() as $media )
             <x-slot name='media'>
-                <img src="{{ $media->getFullUrl() }}">
+                <img src="{{$item->getFirstMediaUrl()}}" alt="">
             </x-slot>
-             @endforeach
 
             <x-slot name='title'>
                 {{ $item->title}}

@@ -51,7 +51,7 @@ class ItemController extends Controller
         $itemImage->addMediaFromRequest('image')
 
             ->toMediaCollection();
-
+            
 
         return redirect()->back();
     }
