@@ -15,6 +15,15 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+
+    //Prueba de fillable en user model
+    protected $fillable =[
+        'name',
+        'email',
+        'password',
+
+    ];
+
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);

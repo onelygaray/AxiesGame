@@ -72,9 +72,8 @@
       @foreach ($items as $item)
 
         <x-card-view>
-            {{-- @foreach ( $item->getMedia() as $media ) --}}
             <x-slot name='media'>
-                <img class="w-full h-full object-cover" src="{{ $item->getFirstMediaUrl() }}">
+                <img src="{{ $item->getFirstMediaUrl() }}">
             </x-slot>
              {{-- @endforeach --}}
 
@@ -103,3 +102,4 @@
 
 
 @endsection
+edt 

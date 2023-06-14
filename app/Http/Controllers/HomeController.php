@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,9 @@ class HomeController extends Controller
      */
     public function index():View
     {
-        return view('layouts.home',['items'=>Item::all()]);
+        $users= User::query()->with('items')->get();
+
+        return view('layouts.home', compact('users'));
     }
 
     /**
