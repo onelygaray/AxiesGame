@@ -49,15 +49,18 @@
 
     </div>
     <div class="w-[1410px] h-[1156px] mt-[60px] flex flex-wrap gap-x-[20px]">
-        
+
         {{-- fragmento de codigo donde se creara la card en base al componente --}}
         {{-- Antes de manipular consultar(Bondi) --}}
+
+
       @foreach ($items as $item)
-          
+
         <x-card-view>
             <x-slot name='media'>
-                <img src="{{$item->getFirstMediaUrl()}}" alt="">
+                <img class="w-full h-full" src="{{ $item->getFirstMediaUrl() }}">
             </x-slot>
+             {{-- @endforeach --}}
 
             <x-slot name='title'>
                 {{ $item->title}}
@@ -75,6 +78,7 @@
         </x-card-view>
 
       @endforeach
+
         </div>
 
     </div>

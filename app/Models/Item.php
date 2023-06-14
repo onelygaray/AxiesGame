@@ -19,7 +19,7 @@ class Item extends Model implements HasMedia
     //implementando el Hasmedia
     use HasFactory, InteractsWithMedia;
 
-    public function User(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -28,7 +28,7 @@ class Item extends Model implements HasMedia
     o el usuario de x item por eso la relacion se define en los 2 modelos
     */
 
-    public function Collection(): HasMany
+    public function collection(): HasMany
     {
         return $this->hasMany(Collection::class);
     }
