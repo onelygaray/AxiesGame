@@ -2,9 +2,13 @@
 
 @section('content')
 
-
-</x-detail-item>
+<x-detailItem/>
 
 
 @endsection
+
+
+
+
+
 
