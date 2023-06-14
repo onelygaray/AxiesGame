@@ -60,7 +60,7 @@
             <x-slot name='media'>
                 <img class="w-full h-full" src="{{ $item->getFirstMediaUrl() }}">
             </x-slot>
-             {{-- @endforeach --}}
+         
 
             <x-slot name='title'>
                 {{ $item->title}}

@@ -37,12 +37,11 @@ class ItemController extends Controller
     public function store(ItemCreateRequest $request)
     {
         //Toma la validacion creada en el request
-
         $userId = Auth::id();
         $itemData = $request->validated();
         $itemData['user_id'] = $userId;
         $itemImage = Item::create($itemData);
-
+        
         /*         $itemImage = Item::create($request->validated());
          */
 

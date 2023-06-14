@@ -11,7 +11,10 @@ class Collection extends Model
 {
     use HasFactory;
 
-
+    //prueba de fillable
+    protected $fillable =[
+        'name'
+    ];
     public function Item(): HasMany
     {
         return $this->hasMany(Item::class);
