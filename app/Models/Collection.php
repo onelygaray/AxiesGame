@@ -12,7 +12,7 @@ class Collection extends Model
     use HasFactory;
 
 
-    public function Item(): HasMany
+    public function items(): HasMany
     {
         return $this->hasMany(Item::class);
     }

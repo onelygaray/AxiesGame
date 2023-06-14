@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ItemCreateRequest;
 use App\Models\Collection;
 use App\Models\Item;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
@@ -16,11 +19,24 @@ class ItemController extends Controller
      */
     public function index(): View
     {
-        $collections = Collection::query()->get();
+
+        /* $items = Item::query()->where('user_id', $user)->with('user')->get();*/
+
+        $collections = Collection::query()
+            ->with('items')
+            ->get();
+
 
         $items = Item::query()->get();
-        return view('layouts.createItems', ['items' => $items]);
+        return view(
+            'layouts.createItems',
+            [
+                'items' => $items,
+                'collections' => $collections
+            ]
+        );
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -63,19 +79,26 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-<<<<<<< HEAD
-        $userId = Auth::id();
-        $userName = Auth::user();
-
-        $items = Item::query()->where('user_id', $userId)->get();
-=======
         // $userId =Auth::id();
-        $user =  Auth::user();
+        $user = Auth::id();
+        $idColecction = Collection::pluck('id');
+        $idItems = Item::pluck('id');
+        /*         dd($idColecction->toArray());
+         *//*$items = $user->items;  */// Accedio a la relacion y accede a los item que tiene ese usuario
+        $items = Item::query()->where('user_id', $user)->with('user')->get();
 
-        $items = $user->items;
+        $art = Collection::with('items')->whereIn('id', $idItems)->get();
 
->>>>>>> ac7ef76fad306bdb14ce6adfed35a42eac24a675
-        return view('layouts.author', ['items' => $items]);
+        /*         dd($art->toArray());
+         */
+        return view(
+            'layouts.author',
+            [
+                'items' => $items,
+                'art' => $art
+
+            ]
+        );
     }
 
 

@@ -2,6 +2,22 @@
 
 @section('content')
 
+     <div class="text-white flex flex-col w-full align-items-center">
+        @foreach ($art as  $value)
+     <a class="text-green-400" href="">{{ $value->name }}</a>
+     @foreach ($value->items as $item)
+     <a href="">{{ 'tittle:'.$item->title }}</a>
+ @endforeach{{--     <p>{{  $value->items->title }}</p>
+ --}}   @endforeach 
+
+<div class="w-full bg-green-300">
+    
+</div>
+
+
+</div>
+ 
+
 <div class="w-full h-[1730px]  gap-[12px] flex flex-col items-center py-[80px] relative">
     <div class="w-[1410px] h-[354px]">
         <div class="h-[280px] w-full bg-[#313037] relative">
@@ -35,13 +51,12 @@
             </div>
 
         </div>
+
         <div class="py-[24px] h-[74px] w-full bg-[#343444] relative text-white ">
             <ul class="flex items-center  justify-around ml-[414px] text-[20px] font-[700] ">
-                <li><a href="#">All</a></li>
-                <li><a href="#">Art</a></li>
-                <li><a href="#">Music</a></li>
-                <li><a href="#">Collectibles</a></li>
-                <li><a href="#">Sport</a></li>
+                @foreach ($art as $value)
+                <li><a href="">{{ $value->name }}</a></li>
+                @endforeach
 
             </ul>
 
@@ -59,7 +74,7 @@
         <x-card-view>
             {{-- @foreach ( $item->getMedia() as $media ) --}}
             <x-slot name='media'>
-                <img src="{{ $item->getFirstMediaUrl() }}">
+                <img class="w-full h-full object-cover" src="{{ $item->getFirstMediaUrl() }}">
             </x-slot>
              {{-- @endforeach --}}
 
