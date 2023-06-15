@@ -19,15 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
- Route::get('/', function () {
-     return view('welcome');
- });
-
-// Route::get('/', function () {
-//     return view('home',['items'=>Item::all()]);
-// });
-
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -41,7 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/item/create', ItemController::class)->except('show');
 });
 
-Route::get('/author',  [ItemController::class,'show'])->name('author');
+Route::get('/author', [ItemController::class, 'show'])->name('author');
 
 Route::get('/itemDetails', [ItemDetails::class, 'index']);
 

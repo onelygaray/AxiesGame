@@ -1,9 +1,11 @@
 <header class="flex w-full h-[80px] z-[1] flex-col  bg-gray-900 bg-opacity-87 backdrop-filter backdrop-blur-md  text-white items-center border-b border-[#8A8AA0]">
     <div class="flex h-[80px] items-center justify-center">
-        <a class="flex items-center justify-center gap-[10px]
+        <a class="flex items-center justify-center gap-[10px] 
         mr-[239px] cursor-pointer hover:scale-125 ease-out duration-500
-        " href="{{ route('login')}}">
+        " href="{{ route('')}}">
+            
             <img src="{{asset('images/logo.svg')}}" alt="">
+           
             <h1 class="text-[36px] font-bold ">Axies</h1>
         </a>
 

@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ItemCreateRequest;
 use App\Models\Collection;
 use App\Models\Item;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
@@ -16,19 +19,31 @@ class ItemController extends Controller
      */
     public function index(): View
     {
-        $collections = Collection::query()->get();
 
-        $userId =Auth::id();
-        $items = Item::query()->where('user_id',$userId)->get();
-        return view('layouts.createItems', ['items' => $items, 'collections' => $collections]);
+        /* $items = Item::query()->where('user_id', $user)->with('user')->get();*/
+
+        $collections = Collection::query()
+            ->with('items')
+            ->get();
+
+
+        $items = Item::query()->get();
+        return view(
+            'layouts.createItems',
+            [
+                'items' => $items,
+                'collections' => $collections
+            ]
+        );
     }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('layouts.createItems');
+        //
     }
 
     /**
@@ -41,7 +56,8 @@ class ItemController extends Controller
         $itemData = $request->validated();
         $itemData['user_id'] = $userId;
         $itemImage = Item::create($itemData);
-        
+
+
         /*         $itemImage = Item::create($request->validated());
          */
 
@@ -50,7 +66,10 @@ class ItemController extends Controller
         $itemImage->addMediaFromRequest('image')
 
             ->toMediaCollection();
-            
+
+
+        /*         $images = $itemImage->getMedia();
+         */
 
         return redirect()->back();
     }
@@ -61,11 +80,24 @@ class ItemController extends Controller
     public function show(Item $item)
     {
         // $userId =Auth::id();
-        $user =  Auth::user();
+        $user = Auth::id();
+        $idColecction = Collection::pluck('id');
+        $idItems = Item::pluck('id');
+        /*         dd($idColecction->toArray());
+         *//*$items = $user->items;  */// Accedio a la relacion y accede a los item que tiene ese usuario
+        $items = Item::query()->where('user_id', $user)->with('user')->get();
 
-        $items = $user->items;
+        $art = Collection::with('items')->whereIn('id', $idItems)->get();
 
-        return view('layouts.author', ['items' => $items]);
+        /*         dd($art->toArray());
+         */
+        return view(
+            'layouts.author',
+            [
+                'items' => $items,
+                'art' => $art
+            ]
+        );
     }
 
 

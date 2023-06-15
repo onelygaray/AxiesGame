@@ -41,9 +41,11 @@ class Item extends Model implements HasMedia
     o el usuario de x item por eso la relacion se define en los 2 modelos
     */
 
-    public function collection(): HasMany
+
+    // Que item solo puede tener una collection    
+    public function collection(): BelongsTo
     {
-        return $this->hasMany(Collection::class);
+        return $this->belongsTo(Collection::class);
     }
 
 

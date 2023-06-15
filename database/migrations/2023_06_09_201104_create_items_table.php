@@ -16,7 +16,6 @@ return new class extends Migration {
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->text('image')->nullable();
             $table->decimal('price');
             $table->char('title');
             $table->text('description');
@@ -24,6 +23,7 @@ return new class extends Migration {
             $table->decimal('size');
             $table->foreignId('collection_id')->references('id')->on('collections'); //
             $table->foreignId('user_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }
