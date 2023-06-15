@@ -12,7 +12,7 @@
         <nav>
 
         <ul class="flex text-lg  list-none gap-x-10 ">
-            <li><a class="no-underline" href="">Home</a></li>
+            <li><a class="no-underline" href="{{ route('home') }}">Home</a></li>
             <li><a class="flex items-center no-underline" href="">Explore <svg xmlns="http://www.w3.org/2000/svg"
                         width="10" height="6" viewBox="0 0 10 6" fill="none">
                         <path

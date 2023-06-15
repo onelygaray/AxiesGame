@@ -39,11 +39,9 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($itemId)
+    public function show($id)
 {
-    $items = Item::find($itemId);
 
-    return view('layouts.itemDetail', ['items' => $items]);
 }
 
     /**

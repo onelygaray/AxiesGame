@@ -37,7 +37,8 @@ class ItemDetailController extends Controller
      */
     public function show(string $id):View
     {
-        $items = Item::find($id);
+        $items = Item::with('user')->find($id);
+        // $items = Item::find($id);
 
         return view('layouts.itemDetail', compact('items'));
     }

@@ -1,7 +1,7 @@
 <div class="w-full h-[1510px] flex flex-col gap-[80px] ">
     <div class="flex w-[1410px] h-[690px] gap-[100px]">
         <div class="w-[690px] h-[690px] bg-[#343444] rounded-[10px]">
-            {{ $items->getFirstMedia() }}
+                {{ $items->getFirstMedia() }}
         </div>
         <div class="w-[620px] h-[340px]">
             <h4 class="text-white font-bold text-36px leading-[44px] mb-4">{{$items->title}}</h4>
@@ -49,7 +49,7 @@
                     </div>
                     <div>
                         <h5 class="text-[#8A8AA0] text-[13px] leading-5 font-normal">Creator</h5>
-                        <h4 class="text-white text-15px leading-[22px] font-bold"></h4>
+                        <h4 class="text-white text-15px leading-[22px] font-bold">{{$items->user->name}}</h4>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
         </div>
         <div class="flex gap-[30px] mt-10">
 
-            {{-- <x-card-view/> --}}
+            
             {{-- <x-axies.itemAuthor></x-axies.itemAuthor>
             <x-axies.itemAuthor></x-axies.itemAuthor>
             <x-axies.itemAuthor></x-axies.itemAuthor>

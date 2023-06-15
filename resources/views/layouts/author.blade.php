@@ -16,15 +16,15 @@
      @foreach ($value->items as $item)
      <a href="">{{ 'tittle:'.$item->title }}</a>
  @endforeach{{--     <p>{{  $value->items->title }}</p>
- --}}   @endforeach 
+ --}}   @endforeach
 
 <div class="w-full bg-green-300">
-    
+
 </div>
 
 
 </div>
- 
+
 
 <div class="w-full h-[1730px]  gap-[12px] flex flex-col items-center py-[80px] relative">
     <div class="w-[1410px] h-[354px]">
@@ -63,7 +63,7 @@
         <div class="py-[24px] h-[74px] w-full bg-[#343444] relative text-white ">
             <ul class="flex items-center  justify-around ml-[414px] text-[20px] font-[700] ">
                 @foreach ($art as $value)
-                <li><a href="">{{ $value->name }}</a></li>
+                <li><a class="text-white" href="">{{ $value->name }}</a></li>
                 @endforeach
 
             </ul>
