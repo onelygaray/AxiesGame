@@ -12,7 +12,7 @@
     </div>
 
     <div class="w-[290px] h-[169px] mt-[21px]">
-        <h3 class="text-[18px] font-[700] leading-[26px]">{{$title ?? 'Nothing of all'}}</h3>
+        {{$title}}
         <div class="flex items-center mt-[17px]  w-[290px] h-[44px]">
             <div class="flex gap-[12px] w-[146px] h-[44px]">
                 <div class="bg-[#7A798A] rounded-[15px] h-[44px] w-[44px]">
@@ -53,3 +53,6 @@
 
     </div>
 </div>
+
+
+

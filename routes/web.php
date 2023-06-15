@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ItemDetailController;
+use App\Http\Controllers\ItemDetails;
 use App\Http\Controllers\ProfileController;
 use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
@@ -36,6 +38,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/author', [ItemController::class, 'show'])->name('author');
+
+Route::get('/itemdetails/{id}', [ItemDetailController::class,'show'])->name('itemdetails.show');
 
 
 require __DIR__ . '/auth.php';

@@ -1,10 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
-
-
-</x-detail-item>
+<x-detailItem :items="$items"/>
 
 
 @endsection
+
+
+
+
+
 

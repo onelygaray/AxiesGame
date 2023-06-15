@@ -1,18 +1,18 @@
 <header class="flex w-full h-[80px] z-[1] flex-col  bg-gray-900 bg-opacity-87 backdrop-filter backdrop-blur-md  text-white items-center border-b border-[#8A8AA0]">
     <div class="flex h-[80px] items-center justify-center">
-        <a class="flex items-center justify-center gap-[10px] 
+        <a class="flex items-center justify-center gap-[10px]
         mr-[239px] cursor-pointer hover:scale-125 ease-out duration-500
         " href="{{ route('login')}}">
-            
+
             <img src="{{asset('images/logo.svg')}}" alt="">
-           
+
             <h1 class="text-[36px] font-bold ">Axies</h1>
         </a>
 
         <nav>
 
         <ul class="flex text-lg  list-none gap-x-10 ">
-            <li><a class="no-underline" href="">Home</a></li>
+            <li><a class="no-underline" href="{{ route('home') }}">Home</a></li>
             <li><a class="flex items-center no-underline" href="">Explore <svg xmlns="http://www.w3.org/2000/svg"
                         width="10" height="6" viewBox="0 0 10 6" fill="none">
                         <path
@@ -80,7 +80,7 @@
         </button>
 
         {{-- Boton del header que redirige a la viste de crear un usuario --}}
-        <a class="text-[18px] text-white ml-[50px]
+        <a class="text-[18px]  text-white ml-[50px]
         font-extrabold  hover:scale-125 ease-out duration-500" href="{{ route('register')}}">     Registrar   </a>
 
         <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -90,7 +90,7 @@
                         @if (Auth::user())
                         <div>{{ Auth::user()->name }}</div>
                         @endif
-                      
+
 
                         <div class="ml-1">
                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

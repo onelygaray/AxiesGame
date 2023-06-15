@@ -3,21 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
-use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use PhpParser\Node\Expr\Cast\String_;
 
-class HomeController extends Controller
+class ItemDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index():View
+    public function index()
     {
-        $users= User::query()->with('items')->get();
-
-        return view('layouts.home', compact('users'));
+        return view('layouts.itemDetail');
     }
 
     /**
@@ -39,10 +35,13 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
-{
+    public function show(string $id):View
+    {
+        $items = Item::with('user')->find($id);
+        // $items = Item::find($id);
 
-}
+        return view('layouts.itemDetail', compact('items'));
+    }
 
     /**
      * Show the form for editing the specified resource.
