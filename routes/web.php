@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/author', [ItemController::class, 'show'])->name('author');
 
-Route::get('/itemdetails/{id}', [ItemDetailController::class,'show'])->name('itemdetails.show');
+Route::get('/itemDetail/{id}', [ItemDetailController::class,'show'])->name('itemDetail.show');
 
 
 require __DIR__ . '/auth.php';
