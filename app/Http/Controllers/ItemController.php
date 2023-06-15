@@ -56,12 +56,8 @@ class ItemController extends Controller
         $itemData = $request->validated();
         $itemData['user_id'] = $userId;
         $itemImage = Item::create($itemData);
-<<<<<<< HEAD
 
 
-=======
-        
->>>>>>> 40e9473832e5a75c957e7bb67721f0c26c117f08
         /*         $itemImage = Item::create($request->validated());
          */
 
@@ -70,7 +66,7 @@ class ItemController extends Controller
         $itemImage->addMediaFromRequest('image')
 
             ->toMediaCollection();
-            
+
 
         /*         $images = $itemImage->getMedia();
          */
@@ -100,7 +96,6 @@ class ItemController extends Controller
             [
                 'items' => $items,
                 'art' => $art
-
             ]
         );
     }
