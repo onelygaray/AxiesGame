@@ -30,9 +30,10 @@
         </button>
 
         {{-- Boton del header que redirige a la viste de crear un usuario --}}
-        <a class="text-[18px] text-white ml-[50px]
+        <a class="text-[18px]  text-white ml-[50px]
         font-extrabold  hover:scale-125 ease-out duration-500" href="{{ route('register')}}">     Registrar   </a>
 
+        
     </div>
 
 

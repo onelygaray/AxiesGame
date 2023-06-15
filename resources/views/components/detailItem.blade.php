@@ -1,5 +1,5 @@
-<div class="w-full h-auto">
-    <div class="flex w-[1410px] h-[690px] gap-[100px] py-20">
+<div class="w-full h-[1510px] flex flex-col gap-[80px] ">
+    <div class="flex w-[1410px] h-[690px] gap-[100px]">
         <div class="w-[690px] h-[690px] bg-[#343444] rounded-[10px]">
 
         </div>
@@ -63,12 +63,14 @@
             </div>
         </div>
     </div>
-    <div class="px-[255px]">
+    <div class="w-[1410px] h-[580px]">
         <div class="flex justify-between items-center">
             <h4 class="font-bold text-36px leading-[44px] text-white">More from this author</h4>
             <a class="font-bold text-white text-14px leading-5" href="#">Explore more</a>
         </div>
         <div class="flex gap-[30px] mt-10">
+
+            <x-card-view/>
             {{-- <x-axies.itemAuthor></x-axies.itemAuthor>
             <x-axies.itemAuthor></x-axies.itemAuthor>
             <x-axies.itemAuthor></x-axies.itemAuthor>
