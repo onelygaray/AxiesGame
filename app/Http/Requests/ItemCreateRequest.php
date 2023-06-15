@@ -22,12 +22,11 @@ class ItemCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            /*             'image' => ['required'],
-             */    'title' => ['required'],
-            'description' => ['required'],
-            'collection_id' => ['required'],
-            'price' => ['required'],
-            'size' => ['required'],
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'collection_id' => 'required',
+            'price' => 'required',
+            'size' => 'required',
         ];
     }
 }
