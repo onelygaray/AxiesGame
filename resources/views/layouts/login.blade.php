@@ -1,7 +1,9 @@
-@extends('layouts.main')
+@extends('layouts.guest')
+
 
 
 @section('content')
+
 <div class="flex justify-center w-full h-[787px]">
     <form class="flex flex-col items-center mt-[80px] w-[691px] h-[427px] text-white">
         <h1 class="mb-[64px] text-[36px] font-[700]">Login To NTFs</h1>
