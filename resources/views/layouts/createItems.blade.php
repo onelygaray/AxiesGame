@@ -1,9 +1,15 @@
 @extends('layouts.main')
-
+    
 @section('content')
-
-    <section class=" bg-[#14141F] text-white m-auto h-[922px]
-     font-sans">
+<x-subheader>
+    <x-slot name="subtitle">
+        Create item
+    </x-slot>
+    <x-slot name="liText">
+        Pages
+    </x-slot>
+</x-subheader>
+    <section class=" bg-[#14141F] text-white font-[Urbanist] m-auto h-[922px]">
         <div class="w-[1440px] flex mx-auto gap-x-20 pt-20">
 
             {{-- card --}}

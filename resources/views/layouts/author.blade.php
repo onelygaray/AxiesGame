@@ -1,6 +1,14 @@
 @extends('layouts.main')
 
 @section('content')
+<x-subheader>
+    <x-slot name="subtitle">
+        Author
+    </x-slot>
+    <x-slot name="liText">
+        Pages
+    </x-slot>
+</x-subheader>
 
      <div class="text-white flex flex-col w-full align-items-center">
         @foreach ($art as  $value)
@@ -63,7 +71,8 @@
         </div>
 
     </div>
-    <div class="w-[1410px] h-[1156px] mt-[60px] flex flex-wrap gap-x-[20px]">
+    <div class="w-[1410px] h-[1140
+    px] mt-[60px] flex flex-wrap gap-x-[20px]">
 
         {{-- fragmento de codigo donde se creara la card en base al componente --}}
         {{-- Antes de manipular consultar(Bondi) --}}
@@ -102,4 +111,3 @@
 
 
 @endsection
-edt 
