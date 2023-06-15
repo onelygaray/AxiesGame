@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class ItemDetails extends Controller
+class ItemDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index():View
+    public function index()
     {
-        return view('layouts.itemDetails');
-
+        return view('layouts.itemDetail');
     }
 
     /**
@@ -35,9 +35,11 @@ class ItemDetails extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id):View
     {
-        //
+        $items = Item::find($id);
+
+        return view('layouts.itemDetail', compact('items'));
     }
 
     /**

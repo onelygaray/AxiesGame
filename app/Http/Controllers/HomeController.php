@@ -6,6 +6,7 @@ use App\Models\Item;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\Cast\String_;
 
 class HomeController extends Controller
 {
@@ -38,10 +39,12 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+    public function show($itemId)
+{
+    $items = Item::find($itemId);
+
+    return view('layouts.itemDetail', ['items' => $items]);
+}
 
     /**
      * Show the form for editing the specified resource.

@@ -111,17 +111,25 @@
             </div>
         </div>
         <div class="w-full h-[519px] flex gap-[30px] mt-[40px] overflow-hidden">
+            @php
+                $includeJs = true;
+            @endphp
         @foreach ($users as $user)
             @foreach ($user->items as $item)
+
         <x-card-view>
             {{-- @foreach ( $item->getMedia() as $media ) --}}
+            <x-slot name='id'>
+                {{$item->id}}
+
+            </x-slot>
             <x-slot name='media'>
                 <img class="w-full h-full" src="{{ $item->getFirstMediaUrl() }}">
             </x-slot>
              {{-- @endforeach --}}
 
-            <x-slot name='title'>
-                {{ $item->title}}
+             <x-slot name='title'>
+                <a href="{{ route('itemdetails.show', ['id' => $item->id]) }}">{{ $item->title }}</a>
             </x-slot>
 
             <x-slot name='user'>
@@ -131,6 +139,8 @@
             <x-slot name='price'>
                 {{ $item->price}}
             </x-slot>
+
+
 
         </x-card-view>
         @endforeach
@@ -213,9 +223,6 @@
         </div>
     </section>
     @include('partials.footer')
-
-    <script src="{{ asset('js/carousel.js') }}"></script>
-
 
 </body>
 </html>

@@ -1,10 +1,10 @@
 <div class="w-full h-[1510px] flex flex-col gap-[80px] ">
     <div class="flex w-[1410px] h-[690px] gap-[100px]">
         <div class="w-[690px] h-[690px] bg-[#343444] rounded-[10px]">
-
+            {{ $items->getFirstMedia() }}
         </div>
         <div class="w-[620px] h-[340px]">
-            <h4 class="text-white font-bold text-36px leading-[44px] mb-4">“The Fantasy Flower illustration ”</h4>
+            <h4 class="text-white font-bold text-36px leading-[44px] mb-4">{{$items->title}}</h4>
             <div class="flex">
                 <div class="flex gap-3 me-[377px]">
                     <button class="flex items-center h-9 justify-center bg-[#343444] rounded-[40px] px-[14px] py-[7px]">
@@ -49,16 +49,17 @@
                     </div>
                     <div>
                         <h5 class="text-[#8A8AA0] text-[13px] leading-5 font-normal">Creator</h5>
-                        <h4 class="text-white text-15px leading-[22px] font-bold">SalvadorDali</h4>
+                        <h4 class="text-white text-15px leading-[22px] font-bold"></h4>
                     </div>
                 </div>
             </div>
             <p class="text-white font-normal text-14px leading-[22px] w-[620px]">
-                Habitant sollicitudin faucibus cursus lectus pulvinar dolor non ultrices eget. Facilisi lobortisal morbi fringilla urna amet sed ipsum vitae ipsum malesuada. Habitant sollicitudin faucibus cursus lectus pulvinar dolor non ultrices eget. Facilisi lobortisal morbi fringilla urna amet sed ipsum
+                {{-- {{$description}} --}}
+                {{$items->description}}
             </p>
             <div class="bg-[#343444] py-3 px-6 flex items-center justify-between w-[295px] rounded-lg mt-5">
-                <span class="text-15px leading-[26px] font-semibold text-[#EBEBEB]">Price</span>
-                <h4 class="text-white text-18px leading-[26px] font-bold">4.89 ETH <span class="text-secundary-white text-[13px] leading-5 font-normal">= $12.246</span></h4>
+                <span class="text-15px leading-[26px] font-semibold text-[#EBEBEB]">price</span>
+                <h4 class="text-white text-18px leading-[26px] font-bold">{{$items->price}}<span>ETH</span> <span class="text-secundary-white text-[13px] leading-5 font-normal">= $12.246</span></h4>
 
             </div>
         </div>
@@ -70,7 +71,7 @@
         </div>
         <div class="flex gap-[30px] mt-10">
 
-            <x-card-view/>
+            {{-- <x-card-view/> --}}
             {{-- <x-axies.itemAuthor></x-axies.itemAuthor>
             <x-axies.itemAuthor></x-axies.itemAuthor>
             <x-axies.itemAuthor></x-axies.itemAuthor>
