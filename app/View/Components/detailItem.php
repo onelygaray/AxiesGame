@@ -8,12 +8,15 @@ use Illuminate\Contracts\View\View;
 
 class detailItem extends Component
 {
+    public $items; 
+    public $cards;
     /**
      * Create a new component instance.
      */
-    public function __construct(public $items)
+    public function __construct($cards, $items)
     {
-        //
+        $this->items = $items;
+        $this->cards = $cards;
     }
 
     /**

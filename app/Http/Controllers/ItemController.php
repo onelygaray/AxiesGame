@@ -79,11 +79,12 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        // $userId =Auth::id();
-        $user = Auth::id();
-        $idColecction = Collection::pluck('id');
         $idItems = Item::pluck('id');
-
+        // $userId =Auth::id();
+       
+        // $idColecction = Collection::pluck('id');
+     
+        $user = Auth::id();
         $items = Item::query()->where('user_id', $user)->with('user')->with('media')->get();
         
         $art = Collection::with('items')->whereIn('id', $idItems)->get();

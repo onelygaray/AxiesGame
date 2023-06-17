@@ -10,7 +10,7 @@
     </x-slot>
 </x-subheader>
 
-<x-detailItem :items="$items"/>
+<x-detailItem :items="$items" :cards="$cards" />
 
 
 @endsection

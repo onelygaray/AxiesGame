@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ItemDetailController extends Controller
 {
@@ -37,13 +38,15 @@ class ItemDetailController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id):View
+    public function show(string $id):View  
     {
-        $items = Item::with('user')->find($id);
+       $items = Item::with('user')->with('media')->find($id);
         // $items = Item::find($id);
         // dd($items);
-        
-        return view('layouts.itemDetail', compact('items'));
+        // $user = Auth::id();
+        $cards = Item::query()->where('user_id', $items->user_id)->with('user')->with('media')->get();
+        // dd($cards);
+        return view('layouts.itemDetail', compact('items','cards'));
     }
 
     /**

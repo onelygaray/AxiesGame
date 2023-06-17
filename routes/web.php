@@ -36,9 +36,7 @@ Route::middleware('auth')->group(function () {
     //Implementacion
     Route::resource('/item/create', ItemController::class)->except('show');
     Route::get('/author', [ItemController::class, 'show'])->name('author');
-
-Route::get('/itemDetail/{id}', [ItemDetailController::class,'show'])->name('itemDetail.show');
-
+    Route::get('/itemDetail/{id}', [ItemDetailController::class, 'show'])->name('itemDetail.show');
 });
 
 
