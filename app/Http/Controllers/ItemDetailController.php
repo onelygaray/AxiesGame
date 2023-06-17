@@ -13,7 +13,9 @@ class ItemDetailController extends Controller
      */
     public function index()
     {
+
         return view('layouts.itemDetail');
+
     }
 
     /**
@@ -39,7 +41,8 @@ class ItemDetailController extends Controller
     {
         $items = Item::with('user')->find($id);
         // $items = Item::find($id);
-
+        // dd($items);
+        
         return view('layouts.itemDetail', compact('items'));
     }
 

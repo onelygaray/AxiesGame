@@ -1,11 +1,15 @@
 <div class="w-full h-[1510px] flex flex-col gap-[80px] ">
-    <div class="flex w-[1410px] h-[690px] gap-[100px]">
-        <div class="w-[690px] h-[690px] bg-[#343444] rounded-[10px]">
+
+    {{-- first section  --}}
+    <div class="flex w-[1410px] h-[690px] gap-[100px] mx-auto mt-[80px] ">
+        <div class="w-[690px] h-auto bg-transparent rounded-[10px]">
                 {{ $items->getFirstMedia() }}
         </div>
         <div class="w-[620px] h-[340px]">
             <h4 class="text-white font-bold text-36px leading-[44px] mb-4">{{$items->title}}</h4>
             <div class="flex">
+
+                {{-- first button --}}
                 <div class="flex gap-3 me-[377px]">
                     <button class="flex items-center h-9 justify-center bg-[#343444] rounded-[40px] px-[14px] py-[7px]">
                         <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,13 +31,15 @@
                         <span class="ms-[6px] text-white text-14px font-bold leading-[22px]">100</span>
                     </button>
                 </div>
-                <div class="flex gap-3">
+
+                {{-- second button --}}
+                <div class="flex gap-3 ">
                     <button  class="bg-[#343444] ps-[9px] pt-[11px] pb-[9px] w-9 h-9 rounded-full">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.3241 0.675199C14.7473 0.0984059 13.9309 -0.127994 13.1391 0.0705603L2.38028 2.76004C0.946096 3.11858 -0.0105779 4.35261 8.82884e-05 5.83111C0.0107545 7.3096 0.983839 8.52957 2.42295 8.86842L6.23487 9.76522L7.13166 13.5771C7.47052 15.0162 8.69054 15.9893 10.169 16C10.1772 16 10.1846 16 10.1928 16C11.6606 16 12.8832 15.0458 13.2401 13.6198L15.9296 2.86099C16.1273 2.06842 15.9009 1.25199 15.3241 0.675199ZM14.735 2.56063L12.0455 13.3195C11.7756 14.396 10.8673 14.7562 10.1772 14.7685C9.48394 14.7636 8.58387 14.3747 8.32952 13.2941L7.42372 9.44602L10.896 5.97383C11.1364 5.73343 11.1364 5.34368 10.896 5.10328C10.6556 4.86288 10.2659 4.86288 10.0255 5.10328L6.55322 8.57557L2.70519 7.66976C1.62462 7.41542 1.23572 6.51529 1.2308 5.82199C1.22588 5.12787 1.60247 4.22291 2.67975 3.95379L13.4378 1.26431C13.5256 1.24216 13.6142 1.23146 13.7012 1.23146C13.9801 1.23146 14.2493 1.34147 14.4536 1.54495C14.7219 1.81325 14.8269 2.19306 14.735 2.56063Z" fill="white"/>
                         </svg>
                     </button>
-                    <button  class="bg-[#343444] px-[10px] py-4 w-9 h-9 rounded-full">
+                    <button  class="bg-[#343444] px-[10px] py-4 w-9 h-9 rounded-full ">
                         <svg width="16" height="4" viewBox="0 0 16 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="2" cy="2" r="2" fill="white"/>
                             <circle cx="8" cy="2" r="2" fill="white"/>
@@ -43,6 +49,8 @@
                     </button>
                 </div>
             </div>
+
+            {{-- creator name --}}
             <div class="bg-[#343444] py-3 ps-3 rounded-2xl w-[295px] mt-6 mb-4">
                 <div class="flex gap-3 items-center">
                     <div class="bg-[#7A798A] w-11 h-11 rounded-[15px]">
@@ -53,10 +61,14 @@
                     </div>
                 </div>
             </div>
+
+            {{-- description --}}
             <p class="text-white font-normal text-14px leading-[22px] w-[620px]">
                 {{-- {{$description}} --}}
                 {{$items->description}}
             </p>
+
+            {{-- price section --}}
             <div class="bg-[#343444] py-3 px-6 flex items-center justify-between w-[295px] rounded-lg mt-5">
                 <span class="text-15px leading-[26px] font-semibold text-[#EBEBEB]">price</span>
                 <h4 class="text-white text-18px leading-[26px] font-bold">{{$items->price}}<span>ETH</span> <span class="text-secundary-white text-[13px] leading-5 font-normal">= $12.246</span></h4>
@@ -64,26 +76,58 @@
             </div>
         </div>
     </div>
-    <div class="w-[1410px] h-[580px]">
+
+
+    {{-- second section --}}
+    <div class="w-[1410px] h-[580px] mx-auto">
         <div class="flex justify-between items-center">
-            <h4 class="font-bold text-36px leading-[44px] text-white">More from this author</h4>
-            <a class="font-bold text-white text-14px leading-5" href="#">Explore more</a>
+            <h4 class="font-bold text-[36px] leading-[44px] text-white">More from this author</h4>
+            <a class="font-bold font-Urbanist text-white text-[14px] underline leading-5" href="#">Explore more</a>
         </div>
         <div class="flex gap-[30px] mt-10">
 
             
-            {{-- <x-axies.itemAuthor></x-axies.itemAuthor>
-            <x-axies.itemAuthor></x-axies.itemAuthor>
-            <x-axies.itemAuthor></x-axies.itemAuthor>
-            <x-axies.itemAuthor></x-axies.itemAuthor> --}}
+        
         </div>
         <div class="flex justify-center items-start mt-[38px] pb-20">
-            <button class="me-5" >
+           
+            <div class="w-[1410px] h-[442px]">
+
+{{--                 
+            @foreach ($items as $item)
+            <x-card-view>
+                <x-slot name='media'>
+                    <img src="{{ $item->getFirstMediaUrl() }}">
+                </x-slot>
+                {{-- @endforeach 
+
+                <x-slot name='title'>
+                    {{ $item->title }}
+                </x-slot>
+
+
+                <x-slot name='user'>
+                    {{ $item->user->name }}
+                </x-slot>
+
+                <x-slot name='price'>
+                    {{ $item->price }}
+                </x-slot>
+
+            </x-card-view>
+        @endforeach --}}
+            </div>
+
+
+
+            {{-- <button class="me-5" >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.6667 7H1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M6.83333 12.8337L1 7.00033L6.83333 1.16699" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
+
+
             <div class="flex gap-2">
                 <button class="p-[3px] rounded-full border-transparent border group/item hover:border-white flex items-center justify-center">
                     <div class="border border-white p-[3px] rounded-full group-hover/item:bg-white"></div>
@@ -102,10 +146,9 @@
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 7H12.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M6.83301 1.16699L12.6663 7.00033L6.83301 12.8337" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
+                </svg> 
+            </button>  --}}
         </div>
     </div>
 
 </div>
-

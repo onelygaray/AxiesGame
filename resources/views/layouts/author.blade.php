@@ -104,6 +104,8 @@
                 </x-card-view>
             @endforeach
 
+            
+
         </div>
 
     </div>

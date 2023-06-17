@@ -35,11 +35,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     //Implementacion
     Route::resource('/item/create', ItemController::class)->except('show');
-});
-
-Route::get('/author', [ItemController::class, 'show'])->name('author');
+    Route::get('/author', [ItemController::class, 'show'])->name('author');
 
 Route::get('/itemDetail/{id}', [ItemDetailController::class,'show'])->name('itemDetail.show');
+
+});
+
 
 
 require __DIR__ . '/auth.php';
