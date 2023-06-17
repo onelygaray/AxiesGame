@@ -1,10 +1,13 @@
 <div class="bg-[#30303E] text-white rounded-[20px] px-[20px] pt-[20px] h-[511px] w-[330px]">
     <div class="relative w-[290px] h-[290px] ">
-        <div class="flex items-center justify-center gap-[5px] bg-[#14141F] w-[64px] h-[28px] rounded-[8px] absolute z-[1] start-[214px] top-[14px]">
-            <img src="{{asset('images/heart.svg')}}" alt="" class="cursor-pointer hover:scale-100 ">
-            <span class="text-[14px] font-[700] leading-[24px]">100</span>
-
-        </div>
+        <form action="{{ route('items.like', ['itemId' => $itemId]) }}" method="POST">
+            @csrf
+            <input type="hidden" name="itemId" value="{{ $itemId }}">
+            <button class="flex items-center justify-center gap-[5px] bg-[#14141F] w-[64px] h-[28px] rounded-[8px] absolute z-[1] start-[214px] top-[14px]" type="submit">
+                <img id="like" src="{{ asset('images/heart.svg') }}" alt="" class="cursor-pointer hover:scale-100">
+                <span class="text-[14px] font-[700] leading-[24px]">{{ $likeCount }}</span>
+            </button>
+        </form>
         <div class="bg-[rgb(122,121,138)] w-[290px] relative h-[290px] rounded-[20px] overflow-hidden">
             {{ $media ?? '' }}
         </div>
@@ -52,7 +55,34 @@
 
 
     </div>
+    <script>
+        const likeButton = document.getElementById('like');
+        const itemId = likeButton.getAttribute('data-item-id');
+
+        likeButton.addEventListener('click', function() {
+          // Realizar la solicitud Fetch
+          fetch(`/items/${itemId}/like`, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+              'Content-Type': 'application/json'
+            },
+          })
+          .then(response => response.json())
+          .then(data => {
+            // Actualizar el contador de likes en la vista
+            const likeCountElement = likeButton.nextElementSibling;
+            likeCountElement.textContent = data.likes;
+          })
+          .catch(error => {
+            console.log('Error:', error);
+          });
+        })
+      </script>
+
 </div>
+
+
 
 
 

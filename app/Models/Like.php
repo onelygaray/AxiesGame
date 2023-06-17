@@ -11,6 +11,7 @@ class Like extends Model
     use HasFactory;
 
      public function likeable() :MorphTo{
+        
         return $this->morphTo();
     }
 }
