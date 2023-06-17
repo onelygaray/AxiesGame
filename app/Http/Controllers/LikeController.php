@@ -49,7 +49,7 @@ class LikeController extends Controller
     }
     $likeCount = $item->likes()->count();
 
-    return redirect()->route('home', ['likeCount' => $likeCount]);
+    return redirect()->route('home')->with('likeCount', $likeCount);
 
     }
 

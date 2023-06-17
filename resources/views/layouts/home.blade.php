@@ -116,14 +116,14 @@
             @endphp
         @foreach ($users as $user)
         @foreach ($user->items as $item)
-            <x-card-view :likeCount{{$likeCount}}>
+            <x-card-view >
 
                 <x-slot name="itemId">
                     {{$item->id}}
                 </x-slot>
-                {{-- <x-slot name="likeCount">
-                    Likes: {{ $likeCount }}
-                </x-slot> --}}
+                <x-slot name="likeCount">
+                    {{ $item->likes->count() }}
+                </x-slot>
                 <x-slot name="media">
                     <img class="w-full h-full" src="{{ $item->getFirstMediaUrl() }}">
                 </x-slot>

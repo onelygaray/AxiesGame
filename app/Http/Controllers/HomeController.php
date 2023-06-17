@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index():View
     {
-        $users= User::query()->with('items')->get();
+        $users= User::query()->with('items', 'items.likes')->get();
 
         return view('layouts.home', compact('users'));
     }
