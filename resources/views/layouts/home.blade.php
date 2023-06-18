@@ -128,7 +128,7 @@
                     <img class="w-full h-full" src="{{ $item->getFirstMediaUrl() }}">
                 </x-slot>
                 <x-slot name="title">
-                    <a href="{{ route('itemdetails.show', ['id' => $item->id]) }}">{{ $item->title }}</a>
+                    <a href="{{ route('itemDetail.show', ['id' => $item->id]) }}">{{ $item->title }}</a>
                 </x-slot>
                 <x-slot name="user">
                     {{ $user->name }}
