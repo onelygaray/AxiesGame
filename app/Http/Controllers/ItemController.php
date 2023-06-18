@@ -56,8 +56,6 @@ class ItemController extends Controller
         $itemData = $request->validated();
         $itemData['user_id'] = $userId;
         $itemImage = Item::create($itemData);
-
-
         /*         $itemImage = Item::create($request->validated());
          */
 
@@ -83,7 +81,6 @@ class ItemController extends Controller
         // $userId =Auth::id();
        
         // $idColecction = Collection::pluck('id');
-     
         $user = Auth::id();
         $items = Item::query()->where('user_id', $user)->with('user')->with('media')->get();
         

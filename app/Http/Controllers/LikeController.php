@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Collection;
 use App\Models\Item;
 use App\Models\Like;
 use Illuminate\Http\Request;
@@ -27,13 +28,13 @@ class LikeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $itemId)
+    public function store($itemId)
     {
 
     $item = Item::findorFail($itemId);
 
 
-    $existingLike = Like::where('likeable_type', Item::class)
+    $existingLike = Like::where('likeable_type', Item::class )
         ->where('likeable_id', $item->id)
         ->where('user_id', auth()->id())
         ->first();
@@ -52,7 +53,28 @@ class LikeController extends Controller
     return redirect()->route('home')->with('likeCount', $likeCount);
 
     }
+    public function likesCollection($collectionId){
+        $collection = Collection::findorFail($collectionId);
 
+
+        $existingLike = Like::where('likeable_type',Collection::class)
+            ->where('likeable_id', $collection->id)
+            ->where('user_id', auth()->id())
+            ->first();
+    
+        if ($existingLike) {
+    
+            $existingLike->delete();
+        } else {
+    
+            $like = new Like();
+            $like->user_id = auth()->id();
+            $collection->likes()->save($like);
+        }
+        $countCollection = $collection->likes()->count();
+    
+        return redirect()->route('home')->with('countCollection', $countCollection);
+    }
     /**
      * Display the specified resource.
      */

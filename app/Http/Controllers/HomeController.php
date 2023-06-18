@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Collection;
 use App\Models\Item;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
@@ -16,8 +17,10 @@ class HomeController extends Controller
     public function index():View
     {
         $users= User::query()->with('items', 'items.likes')->get();
+        $collections = Collection::All();
 
-        return view('layouts.home', compact('users'));
+        // dd($collections);
+        return view('layouts.home', compact('users','collections'));
     }
 
     /**

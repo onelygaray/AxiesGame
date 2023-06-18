@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Collection;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CollectionController extends Controller
 {
@@ -18,7 +20,7 @@ class CollectionController extends Controller
 
         return view('layouts.createItems', ['collections'=>$collections]);
 
- 
+
     }
 
     /**
@@ -45,18 +47,25 @@ class CollectionController extends Controller
     // $itemImage->addMediaFromRequest('image')
 
     //     ->toMediaCollection();
-
-    Collection::create([
-        'name' => $request->input('name'),
+    $user_id = Auth::id();
+    $data = $request->validate([
+        'name' => 'required',
     ]);
+
+    $data['user_id'] = $user_id;
+    // dd($data);
+    Collection::query()->create($data);
+
+    //$collection = Collection::query()->where('user_id', $user)->with('items', );
+    // Collection::create([
+    //     'name' => $request->input('name'),
+    //     'user_id' => $request-> $user,
+    // ]);
 
     /*         $images = $itemImage->getMedia();
      */
 
     return redirect()->back();
-
-
-        //
     }
 
     /**
@@ -64,7 +73,18 @@ class CollectionController extends Controller
      */
     public function show(Collection $collection)
     {
+        // $user = Auth::id();
+        // $collection = Collection::query()->where('user_id', $user)->with('items', );
+   
+   // Obtener el usuario
+//    $user = User::findOrFail($userId);
 
+   // Obtener la colección del usuario con el nombre especificado
+   $collections = Collection::All();
+   dd($collection);
+
+   return redirect()->route('layouts.home')->with('collections', $collections);
+//    return redirect()->route('home')->with(''collection', $collection);
     }
 
     /**
