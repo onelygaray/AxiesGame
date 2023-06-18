@@ -10,23 +10,6 @@
         </x-slot>
     </x-subheader>
 
-    <div class="bg-green text-white flex flex-col w-full align-items-center">
-        @foreach ($art as $value)
-        
-            <a class="text-green-400" href="">{{ $value->name }}</a>
-            @foreach ($value->items as $item)
-                <a href="">{{ 'tittle:' . $item->title }}</a>
-            @endforeach{{--     <p>{{  $value->items->title }}</p>
- --}}   
-        @endforeach
-        <div class="w-full bg-green-300">
-
-        </div>
-
-
-    </div>
-
-
     <div class="w-full h-[1730px]  gap-[12px] flex flex-col items-center py-[80px] relative">
         <div class="w-[1410px] h-[354px]">
             <div class="h-[280px] w-full bg-[#313037] relative">
@@ -82,28 +65,29 @@
 
 
             @foreach ($items as $item)
-                <x-card-view>
-                    <x-slot name='media'>
-                        <img src="{{ $item->getFirstMediaUrl() }}">
-                    </x-slot>
+    <x-card-view>
+        <x-slot name="itemId">
+            {{ $item->id }}
+        </x-slot>
+        <x-slot name="likeCount">
+            {{ $item->likes->count() }}
+        </x-slot>
+        <x-slot name="media">
+            <img src="{{ $item->getFirstMediaUrl() }}">
+        </x-slot>
+        <x-slot name="title">
+            {{ $item->title }}
+        </x-slot>
+        <x-slot name="user">
+            {{ $item->user->name }}
+        </x-slot>
+        <x-slot name="price">
+            {{ $item->price }}
+        </x-slot>
+    </x-card-view>
+@endforeach
 
-                    <x-slot name='title'>
-                        {{ $item->title }}
-                    </x-slot>
 
-
-                    <x-slot name='user'>
-                        {{ $item->user->name }}
-                    </x-slot>
-
-                    <x-slot name='price'>
-                        {{ $item->price }}
-                    </x-slot>
-
-                </x-card-view>
-            @endforeach
-
-            
 
         </div>
 

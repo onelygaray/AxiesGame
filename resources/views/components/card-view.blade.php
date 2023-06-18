@@ -55,31 +55,6 @@
 
 
     </div>
-    <script>
-        const likeButton = document.getElementById('like');
-        const itemId = likeButton.getAttribute('data-item-id');
-
-        likeButton.addEventListener('click', function() {
-          // Realizar la solicitud Fetch
-          fetch(`/items/${itemId}/like`, {
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-              'Content-Type': 'application/json'
-            },
-          })
-          .then(response => response.json())
-          .then(data => {
-            // Actualizar el contador de likes en la vista
-            const likeCountElement = likeButton.nextElementSibling;
-            likeCountElement.textContent = data.likes;
-          })
-          .catch(error => {
-            console.log('Error:', error);
-          });
-        })
-      </script>
-
 </div>
 
 
