@@ -30,7 +30,7 @@ class LikeController extends Controller
     public function store(Request $request, $itemId)
     {
 
-    $item = Item::findorFail($itemId);
+    $item = Item::findOrFail($itemId);
 
 
     $existingLike = Like::where('likeable_type', Item::class)

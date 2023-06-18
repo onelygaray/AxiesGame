@@ -18,7 +18,7 @@ class CollectionController extends Controller
 
         return view('layouts.createItems', ['collections'=>$collections]);
 
- 
+
     }
 
     /**
@@ -36,9 +36,7 @@ class CollectionController extends Controller
     {
 
     //Toma la validacion creada en el request
-    // $userId = Auth::id();
-    // $itemData = $request->validated();
-    // $itemData['user_id'] = $userId;
+    
     // $itemImage = Item::create($itemData);
 
 
