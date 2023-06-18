@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\View;
 
 class detailItem extends Component
 {
-    public $items; 
+    public $items;
     public $cards;
     /**
      * Create a new component instance.

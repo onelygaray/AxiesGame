@@ -115,6 +115,12 @@
 
                 @foreach ($cards as $card)
                     <x-card-view>
+                        <x-slot name="itemId">
+                            {{$card->id}}
+                        </x-slot>
+                        <x-slot name="likeCount">
+                            {{ $card->likes->count() }}
+                        </x-slot>
                         <x-slot name='media'>
                             <img src="{{ $card->getFirstMediaUrl() }}">
                         </x-slot>
@@ -163,7 +169,7 @@
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 7H12.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M6.83301 1.16699L12.6663 7.00033L6.83301 12.8337" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg> 
+                </svg>
             </button>  --}}
         </div>
     </div>
