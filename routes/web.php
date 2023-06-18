@@ -36,11 +36,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     //Implementacion
     Route::resource('/item/create', ItemController::class)->except('show');
+    Route::get('/author', [ItemController::class, 'show'])->name('author');
+    Route::get('/itemDetail/{id}', [ItemDetailController::class, 'show'])->name('itemDetail.show');
 });
 
-Route::get('/author', [ItemController::class, 'show'])->name('author');
-
-Route::get('/itemdetails/{id}', [ItemDetailController::class,'show'])->name('itemdetails.show');
 
 Route::post('/items/{itemId}/like', [LikeController::class, 'store'])->name('items.like');
 
