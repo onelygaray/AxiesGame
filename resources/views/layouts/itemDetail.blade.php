@@ -11,7 +11,7 @@
 </x-subheader>
 
 <x-detailItem :items="$items" :cards="$cards" />
-
+    
 
 @endsection
 

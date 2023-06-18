@@ -12,10 +12,13 @@ class Collection extends Model
 {
     use HasFactory;
 
+    protected $fillable =[
+        'name'
+    ];
+
     public function likes() :Morphmany  {
         return $this->morphMany(like::class,'likeable');
     }
-
 
     public function items(): HasMany
     {

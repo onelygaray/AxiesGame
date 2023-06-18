@@ -150,7 +150,7 @@
                             <input
                                 class="ps-[20px] py-[12px] text-sm mt-[20px] mb-[24px] bg-transparent w-[320px] h-[46px] rounded-lg border border-gray-300"
                                 type="text" name="size" placeholder="e.g. 'size' ">
-                            @error('royalties')
+                            @error('size')
                                 {{ $message }}
                             @enderror
 

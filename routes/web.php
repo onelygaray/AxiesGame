@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ItemDetailController;
@@ -43,5 +44,10 @@ Route::middleware('auth')->group(function () {
 
 Route::post('/items/{itemId}/like', [LikeController::class, 'store'])->name('items.like');
 
+Route::get('collection',[CollectionController::class, 'create']);
+Route::post('layouts',[CollectionController::class, 'store'])->name('collection.store');
+// Route::get('/collection', function () {
+//     return view('layouts.collection');
+// });
 
 require __DIR__ . '/auth.php';
