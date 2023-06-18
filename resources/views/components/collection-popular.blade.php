@@ -24,17 +24,27 @@
                 <img class="h-[64px] w-[64px] rounded-[21px]" src="" alt="">
             </div>
             <div class="h-[50px] w-[209px]">
-                <h2 class="text-[19px] font-[700] leading-[26px]">Creative Art Collection</h2>
+                <h2 class="text-[19px] font-[700] leading-[26px]">{{ $name ?? 'Creative Collection' }}</h2>
                 <div class="flex items-center gap-[6px] w-[185px] h-[22px]" >
                     <span class="text-[13px] leading-[20px] text-[#8A8AA0]">create by</span>
-                    <a class="text-[15px] font-[700] leading-[22px]" href="#">Ralph Garraway</a>
+                    <a class="text-[15px] font-[700] leading-[22px]" href="#">{{ $user_id ?? 'Ralph lorem' }}</a>
                 </div>
             </div>
 
         </div>
-        <button class="flex items-center justify-center gap-[5px] w-[64px] h-[28px] bg-[#14141F] rounded-[10px]">
-            <img src="{{ asset('images/heart.svg') }}" alt="">
-            <span class="text-white" >100</span>
-        </button>
+            <form method="POST" action="{{ route('collection.like', ['collectionId' => $collectionId]) }}" >
+                @csrf
+                <input type="hidden" name="collectionId" value="{{ $collectionId }}">
+                <button class="flex items-center justify-center gap-[5px] w-[64px] h-[28px] bg-[#14141F] rounded-[10px]">
+                    <img id="like" src="{{ asset('images/heart.svg') }}" alt="" class="cursor-pointer hover:scale-100">
+                    <span class="text-[14px] font-[700] leading-[24px]">{{ $countCollection }}</span>
+                </button>
+    
+        </form>
+
+
+
+
+
     </div>
 </div>

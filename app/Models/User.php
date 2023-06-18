@@ -28,6 +28,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Item::class);
     }
+    public function collection(): HasMany{
+        return $this->hasMany(Collection::class);
+    }
     /* El sentido de esta relacion
     es para saber el usuario de dicho items*/
 
