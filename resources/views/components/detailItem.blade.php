@@ -110,29 +110,29 @@
         </div> --}}
         <div class="flex justify-center items-start mt-[38px] pb-20">
 
-            <div class="w-[1410px] h-[442px]">
+            <div class="flex gap-x-[20px] w-[1410px] h-[450px] overflow-hidden scroll-m-0">
 
 
-       @foreach ($cards as $card)
-                <x-card-view>
-                    <x-slot name='media'>
-                        <img src="{{ $card->getFirstMediaUrl() }}">
-                    </x-slot>
+                @foreach ($cards as $card)
+                    <x-card-view>
+                        <x-slot name='media'>
+                            <img src="{{ $card->getFirstMediaUrl() }}">
+                        </x-slot>
 
-                    <x-slot name='title'>
-                        {{ $card->title }}
-                    </x-slot>
+                        <x-slot name='title'>
+                            {{ $card->title }}
+                        </x-slot>
 
-                    <x-slot name='user'>
-                        {{ $card->user->name }}
-                    </x-slot>
+                        <x-slot name='user'>
+                            {{ $card->user->name }}
+                        </x-slot>
 
-                    <x-slot name='price'>
-                        {{ $card->price }}
-                    </x-slot>
+                        <x-slot name='price'>
+                            {{ $card->price }}
+                        </x-slot>
 
-                </x-card-view>
-            @endforeach
+                    </x-card-view>
+                @endforeach
             </div>
 
 

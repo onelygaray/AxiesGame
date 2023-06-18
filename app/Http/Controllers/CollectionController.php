@@ -18,7 +18,7 @@ class CollectionController extends Controller
 
         return view('layouts.createItems', ['collections'=>$collections]);
 
-
+ 
     }
 
     /**
@@ -26,7 +26,7 @@ class CollectionController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.collection');
     }
 
     /**
@@ -35,7 +35,25 @@ class CollectionController extends Controller
     public function store(Request $request)
     {
 
+    //Toma la validacion creada en el request
+    // $userId = Auth::id();
+    // $itemData = $request->validated();
+    // $itemData['user_id'] = $userId;
+    // $itemImage = Item::create($itemData);
 
+
+    // $itemImage->addMediaFromRequest('image')
+
+    //     ->toMediaCollection();
+
+    Collection::create([
+        'name' => $request->input('name'),
+    ]);
+
+    /*         $images = $itemImage->getMedia();
+     */
+
+    return redirect()->back();
 
 
         //

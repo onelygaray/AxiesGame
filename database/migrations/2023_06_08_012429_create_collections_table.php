@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
-            $table->char('name'); //nombre de la colecion...
+            $table->string('name'); //nombre de la colecion...
             $table->timestamps();
         });
     }
