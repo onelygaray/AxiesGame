@@ -1,23 +1,29 @@
-const carrousel = document.getElementById('carrousel');
+ const carrusel = document.getElementById('carrouselCards');
 
-let maxScrollLeft = carrousel.scrollWidth - carrousel.clientWidth;
+// let maxScrollLeft = carrusel.scrollWidth - carrusel.clientWidth;
+ let intervalo = null;
+ let step = 1;
+ const start = () => {
+   intervalo = setInterval(function () {
+     carrusel.scrollLeft = carrusel.scrollLeft + step;
+     if (carrusel.scrollLeft === maxScrollLeft) {
+       step = step * -1;
+     } else if (carrusel.scrollLeft === 0) {
+       step = step * -1;
+   }
+   }, 10);
+ };
 
-let invervalo = null;
-let step = 1;
-
-const start =() => {
-    intervalo = setInterval(function() {
-        if(carrousel.scrollLeft === maxScrollLeft){
-            step = step * -1;
-        }
-        else if (carrousel.scrollLeft === 0){
-            step = step * -1; 
-        }
-    },10);
-}
-
-const stop = () => {
-    clearInterval(invervalo);
+ const stop = () => {
+    clearInterval(intervalo);
 };
 
-start();
+ carrusel.addEventListener("mouseover", () => {
+   stop();
+ });
+
+ carrusel.addEventListener("mouseout", () => {
+   start();
+ });
+
+ start();

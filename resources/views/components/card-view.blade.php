@@ -5,7 +5,7 @@
             <input type="hidden" name="itemId" value="{{ $itemId }}">
             <button class="flex items-center justify-center gap-[5px] bg-[#14141F] w-[64px] h-[28px] rounded-[8px] absolute z-[1] start-[214px] top-[14px]" type="submit">
                 <img id="like" src="{{ asset('images/heart.svg') }}" alt="" class="cursor-pointer hover:scale-100">
-                <span class="text-[14px] font-[700] leading-[24px]">{{ $likeCount }}</span>
+                <span   class="text-[14px] font-[700] leading-[24px]">{{ $likeCount }}</span>
             </button>
         </form>
         <div class="bg-[rgb(122,121,138)] w-[290px] relative h-[290px] rounded-[20px] overflow-hidden">

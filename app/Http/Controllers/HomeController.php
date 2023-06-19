@@ -14,21 +14,23 @@ class HomeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index():View
+    public function index(): View
     {
-        $users= User::query()->with('items', 'items.likes')->get();
-        $collections = Collection::All();
+        $users = User::query()->with('items.media', 'items.likes')->get();
+        $collections = Collection::with('items.media')->take(3)->get();
+        // $items = $collection->items()->with('media')->get();
 
-        $today = now()->format('Y-m-d'); 
+        $today = now()->format('Y-m-d');
         $cardstodays = Item::whereDate('created_at', $today)->get();
 
         $topSellers = User::withSum('items', 'price')
         ->orderBy('items_sum_price', 'asc')
         ->get();
-
-        // dd($collections);
-        return view('layouts.home', compact('users','collections', 'cardstodays', 'topSellers'));
+        // $collections = Collection::with('items')->with('media')->take(3)->get();
+        // dump($collections);
+        return view('layouts.home', compact('users', 'collections', 'cardstodays', 'topSellers'));
     }
+
 
     /**
      * Show the form for creating a new resource.
