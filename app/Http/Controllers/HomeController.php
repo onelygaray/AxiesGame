@@ -18,6 +18,8 @@ class HomeController extends Controller
     {
         $users = User::query()->with('items.media', 'items.likes')->get();
         $collections = Collection::with('items.media')->take(3)->get();
+
+        // dd($collections);
         // $items = $collection->items()->with('media')->get();
 
         $today = now()->format('Y-m-d');
@@ -26,9 +28,14 @@ class HomeController extends Controller
         $topSellers = User::withSum('items', 'price')
         ->orderBy('items_sum_price', 'asc')
         ->get();
-        // $collections = Collection::with('items')->with('media')->take(3)->get();
-        // dump($collections);
-        return view('layouts.home', compact('users', 'collections', 'cardstodays', 'topSellers'));
+
+         // Obtener los items agrupados por colección
+        $collectionItems = Item::whereIn('collection_id', $collections->pluck('id'))
+            ->with('media')
+            ->get()
+            ->groupBy('collection_id');
+
+        return view('layouts.home', compact('users', 'collections', 'cardstodays', 'topSellers','collectionItems'));
     }
 
 

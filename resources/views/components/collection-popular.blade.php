@@ -1,9 +1,9 @@
 <div class="flex flex-col gap-[18px] bg-[#343444] h-full w-[450px] rounded-[10px] p-[20px]">
-   
+
    {{-- picturs of collection item --}}
     <div class="h-[272px] w-[410px] grid grid-cols-2 grid-rows-1 gap-[10px]">
-        
-        {{$img}}
+
+        {{ $img }} 
         {{-- <div class="bg-[#7A798A] rounded-[10px]">
             <img src="" alt="">
         </div>
@@ -43,7 +43,7 @@
                     <img id="like" src="{{ asset('images/heart.svg') }}" alt="" class="cursor-pointer hover:scale-100">
                     <span class="text-[14px] font-[700] leading-[24px]">{{ $countCollection }}</span>
                 </button>
-    
+
         </form>
 
 

@@ -1,6 +1,6 @@
  const carrusel = document.getElementById('carrouselCards');
 
-// let maxScrollLeft = carrusel.scrollWidth - carrusel.clientWidth;
+let maxScrollLeft = carrusel.scrollWidth - carrusel.clientWidth;
  let intervalo = null;
  let step = 1;
  const start = () => {

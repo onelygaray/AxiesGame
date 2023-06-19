@@ -34,16 +34,16 @@
 
 
                 <div class="flex gap-[16px] w-[310px] h-[56px] mt-[36px]">
-                    <button
+                    <a
                         class="flex items-center gap-[6px] justify-center w-[154px] h-[56px] rounded-[30px] border border-[#5142FC]">
                         <img src="{{ asset('images/airnave.svg') }}" alt="">
                         <span>Explore</span>
-                    </button>
-                    <button
-                        class="flex items-center gap-[6px] justify-center w-[154px] h-[56px] rounded-[30px] border border-[#5142FC]">
+                    </a>
+                    <a
+                        href="{{ route('create.index') }}" class="flex items-center gap-[6px] justify-center w-[154px] h-[56px] rounded-[30px] border border-[#5142FC]">
                         <img src="{{ asset('images/note.svg') }}" alt="">
                         <span>Create</span>
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -133,7 +133,7 @@
 
         <div id="carrousel" class="h-auto w-auto">
             <div id="carrouselCards"
-                class="overflow-x-scroll overflow-x-hidden overflow-x-hidden overflow-y-hidden  flex gap-[30px] w-[1410px] h-[530px]  mt-[40px]">
+                class="overflow-x-hidden  overflow-y-hidden  flex gap-[30px] w-[1410px] h-[530px]  mt-[40px]">
 
                 @foreach ($users as $user)
                     @foreach ($user->items as $item)
@@ -190,14 +190,13 @@
             </div>
             <div class="flex gap-[30px] h-[394px] w-full">
                 @foreach ($collections as $collection)
+                   @foreach ($collection->items as $item)
                     <x-collection-popular>
-                        {{-- <img alt="{{$collection->name}}" class="w-full h-full" src="{{ $collection->items->first()->getFirstMedia('images') }}"> --}}
-                        @foreach ($collection->items as $item)
-                            <x-slot name="img">
-                                <img src="{{ $item->getFirstMediaUrl('images') }}">
-                            </x-slot>
-                        @endforeach
-                        {{-- @dump($collection->items) --}}
+
+                        <x-slot name="img">
+                            <img src="{{ $item->getFirstMediaUrl() }}">
+                        </x-slot>
+
                         <x-slot name="collectionId">
                             {{ $collection->id }}
                         </x-slot>
@@ -212,6 +211,7 @@
                             {{ $collection->user->name }}
                         </x-slot>
                     </x-collection-popular>
+                    @endforeach
                 @endforeach
 
             </div>
@@ -221,7 +221,7 @@
             <div>
                 <h2 class="text-[36px] font-[700] leading-[44px]">Top Seller</h2>
             </div>
-            <div class="w-full h-[228px]">
+            <div class="w-full h-[228px] flex gap-[20px]">
                 @foreach ($topSellers as $topseller)
                     <x-topseller>
                         <x-slot name='name'>
