@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=
     , initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
+    <title>Home</title>
+    
     @vite('resources/css/app.css')
 </head>
 
@@ -129,37 +129,41 @@
                 <a class="text-[14px] leading-[20px] font-[700] tracking-[1px]" href="#">EXPLORE MORE</a>
             </div>
         </div>
-        <div class="w-full h-[519px] flex gap-[30px] mt-[40px] overflow-hidden">
 
-            @foreach ($users as $user)
-                @foreach ($user->items as $item)
-                    <x-card-view>
 
-                        <x-slot name="itemId">
-                            {{ $item->id }}
-                        </x-slot>
-                        <x-slot name="likeCount">
-                            {{ $item->likes->count() }}
-                        </x-slot>
-                        <x-slot name="media">
-                            <img class="w-full h-full" src="{{ $item->getFirstMediaUrl() }}">
-                        </x-slot>
-                        <x-slot name="title">
-                            <a href="{{ route('itemDetail.show', ['id' => $item->id]) }}">{{ $item->title }}</a>
-                        </x-slot>
-                        <x-slot name="user">
-                            {{ $user->name }}
-                        </x-slot>
-                        <x-slot name="price">
-                            {{ $item->price }}
-                        </x-slot>
-                    </x-card-view>
+        <div id="carrousel" class="h-auto w-auto">
+            <div id="carrouselCards"
+                class="overflow-x-scroll  overflow-x-hidden overflow-y-hidden  flex gap-[30px] w-[1410px] h-[530px]  mt-[40px]">
+
+                @foreach ($users as $user)
+                    @foreach ($user->items as $item)
+                        <x-card-view>
+
+                            <x-slot name="itemId">
+                                {{ $item->id }}
+                            </x-slot>
+                            <x-slot name="likeCount">
+                                {{ $item->likes->count() }}
+                            </x-slot>
+                            <x-slot name="media">
+                                <img class="w-full h-full" src="{{ $item->getFirstMediaUrl() }}">
+                            </x-slot>
+                            <x-slot name="title">
+                                <a href="{{ route('itemDetail.show', ['id' => $item->id]) }}">{{ $item->title }}</a>
+                            </x-slot>
+                            <x-slot name="user">
+                                {{ $user->name }}
+                            </x-slot>
+                            <x-slot name="price">
+                                {{ $item->price }}
+                            </x-slot>
+                        </x-card-view>
+                    @endforeach
                 @endforeach
-            @endforeach
 
+            </div>
         </div>
-
-        <div class="h-[16px] w-[148px] flex items-center justify-center gap-[16px] mt-[32px]">
+        <div class="h-[10px] w-[148px] flex items-center justify-center gap-[16px] mt-[32px]">
 
             <img src="{{ asset('images/arrow-left.svg') }}" alt="left" data-name="arrowleft">
 
@@ -191,12 +195,12 @@
                 @foreach ($collections as $collection)
                     <x-collection-popular>
                         <x-slot name="collectionId">
-                            {{$collection->id}}
+                            {{ $collection->id }}
                         </x-slot>
                         <x-slot name="countCollection">
                             {{ $collection->likes->count() }}
                         </x-slot>
-                        
+
                         <x-slot name='name'>
                             {{ $collection->name }}
                         </x-slot>
@@ -255,8 +259,9 @@
 
         </div>
     </section>
-    @include('partials.footer')
 
+    @include('partials.footer')
+    @vite('resources/js/carrousel.js')
 </body>
 
 </html>
