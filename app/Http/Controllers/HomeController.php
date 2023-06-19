@@ -14,14 +14,16 @@ class HomeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index():View
+    public function index(): View
     {
-        $users= User::query()->with('items', 'items.likes')->get();
-        $collections = Collection::All();
-
-        // dd($collections);
-        return view('layouts.home', compact('users','collections'));
+        $users = User::query()->with('items.media', 'items.likes')->get();
+        $collections = Collection::with('items.media')->take(3)->get();
+        // $items = $collection->items()->with('media')->get();
+        // $collections = Collection::with('items')->with('media')->take(3)->get();
+        // dump($collections);
+        return view('layouts.home', compact('users', 'collections'));
     }
+    
 
     /**
      * Show the form for creating a new resource.

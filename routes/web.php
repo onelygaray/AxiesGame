@@ -39,13 +39,15 @@ Route::middleware('auth')->group(function () {
     Route::resource('/item/create', ItemController::class)->except('show');
     Route::get('/author', [ItemController::class, 'show'])->name('author');
     Route::get('/itemDetail/{id}', [ItemDetailController::class, 'show'])->name('itemDetail.show');
+
+    Route::post('/items/{itemId}/like', [LikeController::class, 'store'])->name('items.like');
+    Route::post('collections/{collectionId}/like', [LikeController::class, 'likesCollection'])->name('collection.like');
+    Route::get('collection', [CollectionController::class, 'create']);
+    Route::post('layouts', [CollectionController::class, 'store'])->name('collection.store');
 });
 
 
-Route::post('/items/{itemId}/like', [LikeController::class, 'store'])->name('items.like');
-Route::post('collections/{collectionId}/like',[LikeController::class,'likesCollection'])->name('collection.like');
-Route::get('collection',[CollectionController::class, 'create']);
-Route::post('layouts',[CollectionController::class, 'store'])->name('collection.store');
+
 // Route::get('/collection', function () {
 //     return view('layouts.collection');
 // });

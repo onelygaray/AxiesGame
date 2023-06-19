@@ -7,7 +7,7 @@
     , initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
-    
+
     @vite('resources/css/app.css')
 </head>
 
@@ -133,7 +133,7 @@
 
         <div id="carrousel" class="h-auto w-auto">
             <div id="carrouselCards"
-                class="overflow-x-scroll  overflow-x-hidden overflow-y-hidden  flex gap-[30px] w-[1410px] h-[530px]  mt-[40px]">
+                class="overflow-x-scroll overflow-x-hidden overflow-x-hidden overflow-y-hidden  flex gap-[30px] w-[1410px] h-[530px]  mt-[40px]">
 
                 @foreach ($users as $user)
                     @foreach ($user->items as $item)
@@ -188,29 +188,36 @@
                     <a class="text-[14px] leading-[20px] font-[700] tracking-[1px]" href="#">EXPLORE MORE</a>
                 </div>
             </div>
-            <div class="flex gap-[30px] h-[394px] w-full">
-
+            <div class="overflow-hidden overflow-x-scroll flex gap-[30px] h-[394px] w-full">
 
 
                 @foreach ($collections as $collection)
                     <x-collection-popular>
+                        {{-- <img alt="{{$collection->name}}" class="w-full h-full" src="{{ $collection->items->first()->getFirstMedia('images') }}"> --}}
+                        @foreach ($collection->items as $item)
+                            <x-slot name="img">
+                                <img src="{{ $item->getFirstMediaUrl('images') }}">
+                            </x-slot>
+                        @endforeach
+                        {{-- @dump($collection->items) --}}
                         <x-slot name="collectionId">
                             {{ $collection->id }}
                         </x-slot>
                         <x-slot name="countCollection">
                             {{ $collection->likes->count() }}
                         </x-slot>
-
+                        <x-slot name="media">
+                            <img class="w-full h-full" src="{{ $collection->getFirstMediaUrl('images') }}">
+                        </x-slot>
                         <x-slot name='name'>
                             {{ $collection->name }}
                         </x-slot>
-
                         <x-slot name='user_id'>
                             {{ $collection->user->name }}
                         </x-slot>
-
                     </x-collection-popular>
                 @endforeach
+
 
 
             </div>

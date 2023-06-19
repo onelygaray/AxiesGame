@@ -1,6 +1,10 @@
 <div class="flex flex-col gap-[18px] bg-[#343444] h-full w-[450px] rounded-[10px] p-[20px]">
+   
+   {{-- picturs of collection item --}}
     <div class="h-[272px] w-[410px] grid grid-cols-2 grid-rows-1 gap-[10px]">
-        <div class="bg-[#7A798A] rounded-[10px]">
+        
+        {{$img}}
+        {{-- <div class="bg-[#7A798A] rounded-[10px]">
             <img src="" alt="">
         </div>
         <div class="bg-[#7A798A] rounded-[10px]">
@@ -16,12 +20,12 @@
         </div>
         <div class="bg-[#7A798A] rounded-[10px]">
             <img src="" alt="">
-        </div>
+        </div> --}}
     </div>
     <div class="h-[64px] w-[410px] flex gap-[63px]">
         <div class="flex gap-[10px]">
             <div class="h-[64px] w-[64px] bg-[#7A798A] rounded-[21px]">
-                <img class="h-[64px] w-[64px] rounded-[21px]" src="" alt="">
+                {{ $media ?? '' }}
             </div>
             <div class="h-[50px] w-[209px]">
                 <h2 class="text-[19px] font-[700] leading-[26px]">{{ $name ?? 'Creative Collection' }}</h2>

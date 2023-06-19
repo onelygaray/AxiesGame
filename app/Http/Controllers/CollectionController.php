@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Collection;
+use App\Models\Item;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class CollectionController extends Controller
 {
@@ -54,7 +56,11 @@ class CollectionController extends Controller
 
     $data['user_id'] = $user_id;
     // dd($data);
-    Collection::query()->create($data);
+    $itemImage = Collection::query()->create($data);
+
+    $itemImage->addMediaFromRequest('image')
+
+    ->toMediaCollection();
 
     //$collection = Collection::query()->where('user_id', $user)->with('items', );
     // Collection::create([
@@ -65,7 +71,8 @@ class CollectionController extends Controller
     /*         $images = $itemImage->getMedia();
      */
 
-    return redirect()->back();
+     return redirect()->back()->withErrors(['message' => '¡Colección creada exitosamente!']);
+
     }
 
     /**
@@ -73,17 +80,20 @@ class CollectionController extends Controller
      */
     public function show(Collection $collection)
     {
-        // $user = Auth::id();
+        
+   $collections = Collection::All()->with('items.media');
+//    dd($collection);
+   
+   return redirect()->route('layouts.home')->with('collections', $collections);
+
+  
+// $user = Auth::id();
         // $collection = Collection::query()->where('user_id', $user)->with('items', );
    
    // Obtener el usuario
 //    $user = User::findOrFail($userId);
 
    // Obtener la colección del usuario con el nombre especificado
-   $collections = Collection::All();
-   dd($collection);
-
-   return redirect()->route('layouts.home')->with('collections', $collections);
 //    return redirect()->route('home')->with(''collection', $collection);
     }
 
