@@ -185,9 +185,6 @@
                 </div>
             </div>
             <div class="flex gap-[30px] h-[394px] w-full">
-
-
-
                 @foreach ($collections as $collection)
                     <x-collection-popular>
                         <x-slot name="collectionId">
@@ -196,7 +193,7 @@
                         <x-slot name="countCollection">
                             {{ $collection->likes->count() }}
                         </x-slot>
-                        
+
                         <x-slot name='name'>
                             {{ $collection->name }}
                         </x-slot>
@@ -208,7 +205,6 @@
                     </x-collection-popular>
                 @endforeach
 
-
             </div>
         </div>
 
@@ -217,19 +213,16 @@
                 <h2 class="text-[36px] font-[700] leading-[44px]">Top Seller</h2>
             </div>
             <div class="w-full h-[228px]">
-                <div class="flex items-center justify-center gap-[16px] h-[100px] w-[213px]">
-                    <div class="w-[100px] h-[100px] bg-[#7A798A] rounded-[34px] relative">
-                        <img class="relative" src="" alt="">
-                        <img class="absolute start-[74px] top-[74px]" src="{{ asset('images/check.svg') }}"
-                            alt="">
-                    </div>
-                    <div class="w-[97px] h-[50px]">
-                        <span>Crispin Berry</span>
-                        <span>214.2 ETH</span>
-
-                    </div>
-                </div>
-
+                @foreach ($topSellers as $topseller)
+                    <x-topseller>
+                        <x-slot name='name'>
+                            {{ $topseller->name }}
+                        </x-slot>
+                        <x-slot name='price'>
+                            {{ $topseller->items_sum_price }}
+                        </x-slot>
+                    </x-topseller>
+                @endforeach
             </div>
         </div>
 
@@ -243,10 +236,31 @@
                 </div>
             </div>
             <div class="h-[1032px] mt-[40px] w-full flex flex-wrap gap-[30px]">
-                {{-- @foreach ($items as $item)
-            <x-card :item="$item"/> --}}
+                @foreach ($cardstodays as $cardtoday)
+                <x-card-view>
+                    <x-slot name="itemId">
+                        {{ $cardtoday->id }}
+                    </x-slot>
+                    <x-slot name="likeCount">
+                        {{ $cardtoday->likes->count() }}
+                    </x-slot>
+                    <x-slot name="media">
+                        <img class="w-full h-full" src="{{ $cardtoday->getFirstMediaUrl() }}">
+                    </x-slot>
+                    <x-slot name="title">
+                        <a href="{{ route('itemDetail.show', ['id' => $cardtoday->id]) }}">{{ $cardtoday->title }}</a>
+                    </x-slot>
+                    <x-slot name="user">
+                        {{ $cardtoday->user->name }}
+                    </x-slot>
+                    <x-slot name="price">
+                        {{ $cardtoday->price }}
+                    </x-slot>
 
-                {{-- @endforeach --}}
+                </x-card-view>
+
+
+                @endforeach
 
             </div>
             <button class="w-[154px] h-[54px] mt-[37px] border border-[#FFFF] rounded-[30px] text-[15px]">

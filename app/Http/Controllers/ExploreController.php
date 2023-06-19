@@ -2,32 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Collection;
-use App\Models\Item;
-use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use PhpParser\Node\Expr\Cast\String_;
+use Illuminate\View\View as ViewView;
 
-class HomeController extends Controller
+class ExploreController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index():View
+    public function index(): View
     {
-        $users= User::query()->with('items', 'items.likes')->get();
-        $collections = Collection::All();
+        return view('layouts.exploreitems');
 
-        $today = now()->format('Y-m-d'); 
-        $cardstodays = Item::whereDate('created_at', $today)->get();
-
-        $topSellers = User::withSum('items', 'price')
-        ->orderBy('items_sum_price', 'asc')
-        ->get();
-
-        // dd($collections);
-        return view('layouts.home', compact('users','collections', 'cardstodays', 'topSellers'));
     }
 
     /**
@@ -49,10 +36,10 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
-{
-
-}
+    public function show(string $id)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.

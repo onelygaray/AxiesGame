@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\ExploreController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ItemDetailController;
@@ -40,6 +41,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/author', [ItemController::class, 'show'])->name('author');
     Route::get('/itemDetail/{id}', [ItemDetailController::class, 'show'])->name('itemDetail.show');
 });
+
+
+Route::get('/explore', [ExploreController::class, 'index']);
 
 
 Route::post('/items/{itemId}/like', [LikeController::class, 'store'])->name('items.like');
