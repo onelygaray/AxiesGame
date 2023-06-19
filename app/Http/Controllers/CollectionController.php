@@ -38,7 +38,7 @@ class CollectionController extends Controller
     {
 
     //Toma la validacion creada en el request
-    
+
     // $itemImage = Item::create($itemData);
 
 
@@ -73,13 +73,13 @@ class CollectionController extends Controller
     {
         // $user = Auth::id();
         // $collection = Collection::query()->where('user_id', $user)->with('items', );
-   
+
    // Obtener el usuario
 //    $user = User::findOrFail($userId);
 
    // Obtener la colección del usuario con el nombre especificado
    $collections = Collection::All();
-   dd($collection);
+//    dd($collection);
 
    return redirect()->route('layouts.home')->with('collections', $collections);
 //    return redirect()->route('home')->with(''collection', $collection);
