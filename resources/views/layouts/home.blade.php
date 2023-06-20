@@ -9,6 +9,21 @@
     <title>Home</title>
 
     @vite('resources/css/app.css')
+
+    <script>
+
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher('bce497fa333b4d5eaa22', {
+          cluster: 'us2'
+        });
+
+        var channel = pusher.subscribe('like-channel');
+        channel.bind('likeable', function(data) {
+          alert(JSON.stringify(data));
+        });
+      </script>
 </head>
 
 <body class="relative">
